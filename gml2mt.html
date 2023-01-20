@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>gb - gml2mt</title>
+        <link rel="stylesheet" href="style/style.css">
+        <meta name="description" content="Retro vandalism">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div id="home-link">
+                    <a href="/">gb</a>
+                </div>
+                <div id="navtree"><ul>
+	<li><a href=projects.html class="active">projects</a></li>
+	<li><a href=explorations.html>explorations</a></li>
+	<li><a href=notes.html>notes</a></li>
+	<li><a href=about.html>about</a></li>
+</ul>
+<ul>
+	<li><a href=hardware.html>hardware</a></li>
+	<li><a href=software.html class="active">software</a></li>
+</ul>
+<ul>
+	<li><a href=gml2mt.html class="active">gml2mt</a></li>
+	<li><a href=uxn-player.html>uxn-player</a></li>
+</ul>
+</div>
+
+            </nav>
+        </header>
+        <main>
+            <section id="main-content">
+                <img id="header-img" src="media/gml2mt.jpg">
+
+                <article>
+                <h1 id="title">gml2mt</h1>
+                    <p><strong>gml2mt</strong> is a program that draws tags on a Minitel terminal.
+Details and the source code are available on <a class="outgoing" href="https://github.com/GhettoBastler/gml2mt">GitHub</a></p>
+<p>
+<video controls=""><source src="media/gml2mt_demo.mp4" type="video/mp4"></source></video>
+</p>
+<h3>What is GML ?</h3>
+<p><img src="media/gml2mt_boombap.jpg" /></p>
+<p><em><a class="outgoing" href="https://000000book.com/data/67744">GML file</a> uploded by <a class="outgoing" href="https://000000book.com/data?user=anon-67cd4">anon-67cd4</a></em></p>
+<p><a class="outgoing" href="https://en.wikipedia.org/wiki/Graffiti_Markup_Language">GML</a> (for Graffiti Markup Language) is a file format that allows graffiti artists to store tags as computer files. Because these files record the motion of a tag being drawned, they can then be reused in a variety of ways, like <a class="outgoing" href="https://www.youtube.com/watch?v=_e7Hh2SS_44">tagging robots</a>, <a class="outgoing" href="https://www.youtube.com/watch?v=EFWcAkxzkv4">large scale projections</a> and a <a class="outgoing" href="https://000000book.com/apps">a bunch of other neat stuff</a>. The open repository <a class="outgoing" href="https://000000book.com">#000000book</a> allows users to share their work and even though the whole project have been inactive for some time, people still upload new tags every day.</p>
+<h3>The Minitel</h3>
+<p>Because of its relative availability (at least in France) and very low-resolution screen, I figured using a <a href="minitel.html">Minitel</a> to display street art would be an interesting project. There already are programs that display images on these devices (like <a class="outgoing" href="https://github.com/phooky/Minitel">this one by phooky</a>), but they usually draw rasterized images. I wanted the Minitel to animate the tag being drawn stroke by stroke. Which meant that I had to write my own code to convert a GML file into drawing instructions that the Minitel could recognize.</p>
+                </article>
+            </section>
+                
+        </main>
+        <footer>
+            <a rel="me" href="https://fosstodon.org/@ghettobastler">Fediverse</a>•
+            <a href="https://github.com/GhettoBastler">GitHub</a>•
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA</a>
+        </footer>
+    </body>
+</html>

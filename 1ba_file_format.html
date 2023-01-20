@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>gb - 1ba file format</title>
+        <link rel="stylesheet" href="style/style.css">
+        <meta name="description" content="A custom animation file format for uxn-player">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div id="home-link">
+                    <a href="/">gb</a>
+                </div>
+                <div id="navtree"><ul>
+	<li><a href=projects.html>projects</a></li>
+	<li><a href=explorations.html>explorations</a></li>
+	<li><a href=notes.html class="active">notes</a></li>
+	<li><a href=about.html>about</a></li>
+</ul>
+<ul>
+	<li><a href=electronics.html>electronics</a></li>
+	<li><a href=minitel.html>minitel</a></li>
+	<li><a href=uxn.html class="active">uxn</a></li>
+	<li><a href=bookbinding.html>bookbinding</a></li>
+	<li><a href=openscad.html>openscad</a></li>
+</ul>
+<ul>
+	<li><a href=uxntal.html>uxntal</a></li>
+	<li><a href=1ba_file_format.html class="active">1ba file format</a></li>
+</ul>
+</div>
+
+            </nav>
+        </header>
+        <main>
+            <section id="main-content">
+                
+                <article>
+                <h1 id="title">1ba file format</h1>
+                    <p>Description of the <code>.1ba</code> file format used to store animations played in <a href="uxn-player.html">uxn-player</a>. All numbers are stored MSB first.</p>
+<h2>Global header</h2>
+<p>The first four bytes of a <code>.1ba</code> file are reserved for the screen size:</p>
+<ul>
+<li>width (2 bytes)</li>
+<li>height (2 bytes)</li>
+</ul>
+<h2>Frame data</h2>
+<p>The file header is followed by a series of concatenated frame data. Each frame follows the scheme below:</p>
+<h3>Header</h3>
+<p>A 4-byte-long header storing the duration for which the frame should be displayed (2 bytes), and the number of blocks that stores the frame graphics (2 bytes).</p>
+<ul>
+<li>Duration for which to display the frame (number of milliseconds * 0.06) (2 bytes)</li>
+<li>Number of blocks for this frame (2 bytes)</li>
+</ul>
+<p>Storing the duration this way might seems strange. This is because in the player rom, the subroutine attached to the screen vector is called 60 times each second. So mutiplying the duration by 0.06 gives us a counter to decrement each time the subroutine is called.</p>
+<h3>Skip/mark blocks</h3>
+<p><img src="media/uxn-player-mark-skip.jpg" /></p>
+<p>Graphics for each frame is <a class="outgoing" href="https://wiki.xxiivv.com/site/icn_format.html">ICN-encoded</a>. To reduce the size of the file, we use <em>transparency optimization</em>: if a run of byte from the last frame didn't change, we encode them as a <em>skip-block</em>, which tells the player to skip this part of the screen when displaying the frame. On the other hand, bytes that have changed are stored in a <em>mark-block</em>.</p>
+<p>These skip/mark blocks have the following structure:
+- A flag indicating whether this is a mark block or a skip block (1 byte: 00 means skip, any other value means mark)
+- The length to skip/mark (2 bytes)</p>
+<p>The bytes that follow depend on the type of block:
+- Skip block (flag == 00): the block ends here
+- Mark block (flag != 00): the ICN-encoded graphics</p>
+                </article>
+            </section>
+                
+        </main>
+        <footer>
+            <a rel="me" href="https://fosstodon.org/@ghettobastler">Fediverse</a>•
+            <a href="https://github.com/GhettoBastler">GitHub</a>•
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA</a>
+        </footer>
+    </body>
+</html>

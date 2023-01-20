@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>gb - home</title>
+        <title>gb - uxn-player</title>
         <link rel="stylesheet" href="style/style.css">
-        <meta name="description" content="">
+        <meta name="description" content="Video player for uxn">
     </head>
     <body>
         <header>
@@ -14,10 +14,18 @@
                     <a href="/">gb</a>
                 </div>
                 <div id="navtree"><ul>
-	<li><a href=projects.html>projects</a></li>
+	<li><a href=projects.html class="active">projects</a></li>
 	<li><a href=explorations.html>explorations</a></li>
 	<li><a href=notes.html>notes</a></li>
 	<li><a href=about.html>about</a></li>
+</ul>
+<ul>
+	<li><a href=hardware.html>hardware</a></li>
+	<li><a href=software.html class="active">software</a></li>
+</ul>
+<ul>
+	<li><a href=gml2mt.html>gml2mt</a></li>
+	<li><a href=uxn-player.html class="active">uxn-player</a></li>
 </ul>
 </div>
 
@@ -25,42 +33,17 @@
         </header>
         <main>
             <section id="main-content">
-                
+                <img id="header-img" src="media/uxn-player_badapple.jpg">
+
                 <article>
-                <h1 id="title">home</h1>
-                    <p>Things aren't quite finished yet, but <em>it works</em>.</p>
+                <h1 id="title">uxn-player</h1>
+                    <p><strong>uxn-player</strong> displays 1 bpp animations on the <a href="uxn.html">uxn</a> virtual machine.</p>
+<p><img src="media/uxn-player-keyboard-cat.gif" /></p>
+<p>A Python script is used to convert GIF files into 1 bpp animations using ordered dithering and stored using a <a href="1ba_file_format.html">custom made file format</a>.</p>
+<p>The source code is available on <a class="outgoing" href="http://github.com/GhettoBastler/uxn-player">GitHub</a></p>
                 </article>
             </section>
-                <section id="category-listing">
-<div class="entry">
-<a href="projects.html">
-<div class="entry-text"><p class="entry-title">projects</p>
-<p class="entry-description">things I made</p>
-</div>
-</a>
-</div>
-<div class="entry">
-<a href="explorations.html">
-<div class="entry-text"><p class="entry-title">explorations</p>
-<p class="entry-description">things I tried</p>
-</div>
-</a>
-</div>
-<div class="entry">
-<a href="notes.html">
-<div class="entry-text"><p class="entry-title">notes</p>
-<p class="entry-description">reference material, collections, etc.</p>
-</div>
-</a>
-</div>
-<div class="entry">
-<a href="about.html">
-<div class="entry-text"><p class="entry-title">about</p>
-</div>
-</a>
-</div>
-</section>
-
+                
         </main>
         <footer>
             <a rel="me" href="https://fosstodon.org/@ghettobastler">Fediverse</a>•

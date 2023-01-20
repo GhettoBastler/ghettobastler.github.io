@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>gb - minitel</title>
+        <link rel="stylesheet" href="style/style.css">
+        <meta name="description" content="">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div id="home-link">
+                    <a href="/">gb</a>
+                </div>
+                <div id="navtree"><ul>
+	<li><a href=projects.html>projects</a></li>
+	<li><a href=explorations.html>explorations</a></li>
+	<li><a href=notes.html class="active">notes</a></li>
+	<li><a href=about.html>about</a></li>
+</ul>
+<ul>
+	<li><a href=electronics.html>electronics</a></li>
+	<li><a href=minitel.html class="active">minitel</a></li>
+	<li><a href=uxn.html>uxn</a></li>
+	<li><a href=bookbinding.html>bookbinding</a></li>
+	<li><a href=openscad.html>openscad</a></li>
+</ul>
+</div>
+
+            </nav>
+        </header>
+        <main>
+            <section id="main-content">
+                
+                <article>
+                <h1 id="title">minitel</h1>
+                    <h2>DIN-5 connector pinout</h2>
+<p>The Minitel 1B has a DIN-5 connector that can be used for serial communication.</p>
+<p><img src="media/mt_din-5.jpg" /></p>
+<ol>
+<li>Rx</li>
+<li>GND</li>
+<li>Tx</li>
+<li>PT (transmiting)</li>
+<li>Power supply (8.5V)</li>
+</ol>
+<h2>Logic levels</h2>
+<p>Special care should be taken when connecting to a Minitel as the Rx pin can be pulled to 15V. When using a Raspberry Pi for instance, an <a href="pi_to_minitel_adapter.html">adapter circuit</a> is required.</p>
+<h2>Serial parameters</h2>
+<p>Serial communication requires devices to agree on a set of parameters.</p>
+<h3>Baudrate</h3>
+<table>
+<thead>
+<tr>
+<th>baudrate</th>
+<th>Key combination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>300</td>
+<td>Fctn+P, 3</td>
+</tr>
+<tr>
+<td>1200</td>
+<td>Fctn+P, 1</td>
+</tr>
+<tr>
+<td>4800</td>
+<td>Fctn+P, 4</td>
+</tr>
+</tbody>
+</table>
+<h3>Messages</h3>
+<p>Data transmitted to and from the Minitel 1B uses these parameters:
+- Byte size: 7 bits
+- 1 parity bit (even)</p>
+<h2>Ressources</h2>
+<ul>
+<li><a class="outgoing" href="https://archive.org/details/specifications-techniques-utilisation-minitel-1b/mode/1up">Technical specifications (FR)</a></li>
+<li><a class="outgoing" href="http://minitel.us/">Minitel Research Lab</a></li>
+<li><a class="outgoing" href="https://pila.fr/wordpress/?p=361">Pila's level converter (FR)</a></li>
+</ul>
+                </article>
+            </section>
+                
+        </main>
+        <footer>
+            <a rel="me" href="https://fosstodon.org/@ghettobastler">Fediverse</a>•
+            <a href="https://github.com/GhettoBastler">GitHub</a>•
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA</a>
+        </footer>
+    </body>
+</html>

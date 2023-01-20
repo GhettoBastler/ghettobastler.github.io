@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>gb - openscad</title>
+        <link rel="stylesheet" href="style/style.css">
+        <meta name="description" content="A parametric 3D CAD program">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div id="home-link">
+                    <a href="/">gb</a>
+                </div>
+                <div id="navtree"><ul>
+	<li><a href=projects.html>projects</a></li>
+	<li><a href=explorations.html>explorations</a></li>
+	<li><a href=notes.html class="active">notes</a></li>
+	<li><a href=about.html>about</a></li>
+</ul>
+<ul>
+	<li><a href=electronics.html>electronics</a></li>
+	<li><a href=minitel.html>minitel</a></li>
+	<li><a href=uxn.html>uxn</a></li>
+	<li><a href=bookbinding.html>bookbinding</a></li>
+	<li><a href=openscad.html class="active">openscad</a></li>
+</ul>
+</div>
+
+            </nav>
+        </header>
+        <main>
+            <section id="main-content">
+                
+                <article>
+                <h1 id="title">openscad</h1>
+                    <p>OpenSCAD is a parametric 3D computer-aided design software. It uses code to generate 3D models. I used it to design my <a href="wordblitz-plotter.html">wordblitz-plotter</a> and <a href="p_o_k_e_d_.html">P.O.K.E.D.</a></p>
+<p><img src="media/openscad_thingy.jpg" /></p>
+<pre><code>$fn=50;
+
+module thingy(){
+    difference(){
+        sphere(10);
+        cube([10, 10, 10]);
+    }
+}
+
+thingy();
+</code></pre>
+<h2>Ressources</h2>
+<ul>
+<li><a class="outgoing" href="https://openscad.org/cheatsheet/">OpenSCAD cheatsheet</a></li>
+<li><a class="outgoing" href="https://github.com/nophead/NopSCADlib">NopSCADlib</a>: a library of parts for OpenSCAD</li>
+</ul>
+                </article>
+            </section>
+                
+        </main>
+        <footer>
+            <a rel="me" href="https://fosstodon.org/@ghettobastler">Fediverse</a>•
+            <a href="https://github.com/GhettoBastler">GitHub</a>•
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA</a>
+        </footer>
+    </body>
+</html>
