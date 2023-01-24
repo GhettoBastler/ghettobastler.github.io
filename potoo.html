@@ -85,20 +85,21 @@ this note is inside a category
 <p>Each category will generate a corresponding HTML page with links to its content.</p>
 <h3>Special Markdown files</h3>
 <h4>Category descriptors</h4>
-<p>If a Markdown file have the same name as its parent directory, it is considered a category descriptor. Its content are inserted at the top of the corresponding category page.</p>
+<p>If a Markdown file have the same name as its parent directory, it is considered a category descriptor. Its content is inserted at the top of the corresponding category page.</p>
 <pre><code>...
     └── sub-category/
         ├── sub-category.md
 ...
 </code></pre>
 <p><img src="media/potoo_category_description.jpg" /></p>
-<p>Category descriptors may have the additional <em>children</em> meta-data field, which sets the order in which to display the children links.</p>
+<p>Category descriptors may have an additional <em>children</em> meta-data field, which sets the order in which to display the children links.</p>
 <h4>The index file</h4>
 <pre><code>input/
 ├── input.md
 ...
 </code></pre>
-<p>The category descriptor of the whole input directory will generate the <strong>index.html</strong> file (even if its name is not <em>index.md</em>). This Markdown file is effectively a category descriptor, which means it also supports the <em>children</em> meta-data field for ordering elements.</p>
+<p>The category descriptor of the whole input directory will generate the <strong>index.html</strong> file (even if its name is not <em>index.md</em>).</p>
+<p>This Markdown file is effectively a category descriptor, which means it also supports the <em>children</em> meta-data field for ordering elements.</p>
 <h2>The static directory</h2>
 <pre><code>static/
 │   ├── style/
