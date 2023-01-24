@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>gb - potoo</title>
+        <link rel="stylesheet" href="style/style.css">
+        <meta name="description" content="a custom static site generator">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div id="home-link">
+                    <a href="/">gb</a>
+                </div>
+                <div id="navtree"><ul>
+	<li><a href=projects.html class="active">projects</a></li>
+	<li><a href=explorations.html>explorations</a></li>
+	<li><a href=notes.html>notes</a></li>
+	<li><a href=about.html>about</a></li>
+</ul>
+<ul>
+	<li><a href=hardware.html>hardware</a></li>
+	<li><a href=software.html class="active">software</a></li>
+</ul>
+<ul>
+	<li><a href=potoo.html class="active">potoo</a></li>
+	<li><a href=gml2mt.html>gml2mt</a></li>
+	<li><a href=3615-youtube.html>3615-YouTube</a></li>
+	<li><a href=uxn-player.html>uxn-player</a></li>
+</ul>
+</div>
+
+            </nav>
+        </header>
+        <main>
+            <section id="main-content">
+                
+                <article>
+                <h1 id="title">potoo</h1>
+                    <p><strong>potoo</strong> is the program that generates this website. It is available on <a class="outgoing" href="https://github.com/GhettoBastler/potoo">GitHub</a>.</p>
+<h2>Input directory</h2>
+<pre><code>input/
+├── input.md
+├── note.md
+└── category/
+    ├── a note in a category.md  # regular Markdown note
+    ├── image.jpg  # media file
+    └── sub-category/
+        ├── sub-category.md  # category descriptor
+        └── a note in a sub-category.md
+</code></pre>
+<p>The website is generated from a set of files in a directory. <strong>potoo</strong> processes it by following these rules:</p>
+<ul>
+<li>Markdown files generate an HTML file, with a few special cases (see below).</li>
+<li>Directories generate an HTML file.</li>
+<li>Every non-Markdown file is copied into a <strong>media</strong> sub-directory.</li>
+<li>Hidden files/directories (ie its name starts with ".") are skipped.</li>
+</ul>
+<h3>Markdown files</h3>
+<p><strong>potoo</strong> supports the standard Markdown syntax, with a few additions:</p>
+<ul>
+<li>Obsidian's links (wikilinks)</li>
+<li>Obsidian's embeded elements</li>
+<li>Fenced code blocks</li>
+<li>Tables</li>
+</ul>
+<p>Three optional meta-data fields can be placed at the beginning of the file: <em>title</em>, <em>description</em>, and <em>header</em>.</p>
+<pre><code>title: My awesome note
+description: A short phrase explaining what this is about
+header: image.jpg
+
+this note is inside a category
+...
+</code></pre>
+<h3>Categories</h3>
+<p>Notes can be placed in directories to create <em>categories</em>.</p>
+<pre><code>└── category/
+    ├── a note in a category.md
+    └── sub-category/
+        └── a note in a sub-category.md
+...
+</code></pre>
+<p><img src="media/potoo_category.jpg" /></p>
+<p>Each category will generate a corresponding HTML page with links to its content.</p>
+<h3>Special Markdown files</h3>
+<h4>Category descriptors</h4>
+<p>If a Markdown file have the same name as its parent directory, it is considered a category descriptor. Its content are inserted at the top of the corresponding category page.</p>
+<pre><code>...
+    └── sub-category/
+        ├── sub-category.md  # Category descriptor
+...
+</code></pre>
+<p><img src="media/potoo_category_description.jpg" /></p>
+<p>Category descriptors may have the additional <em>children</em> meta-data field, which sets the order in which to display the children links.</p>
+<h4>The index file</h4>
+<pre><code>input/
+├── input.md
+...
+</code></pre>
+<p>The category descriptor of the whole input directory will generate the <strong>index.html</strong> file (even if its name is not <em>index.md</em>). This Markdown file is effectively a category descriptor, which means it also supports the <em>children</em> meta-data field for ordering elements.</p>
+<h2>The static directory</h2>
+<pre><code>static/
+│   ├── style/
+│   ├── style.css
+│   ├── Fredoka.ttf
+│   └── Josefin.ttf
+├── favicon.ico
+...
+</code></pre>
+<p>Files that should be used <em>as-is</em> (CSS files, fonts, favicon...) can be placed inside the <strong>static</strong> directory. All of its content will be copied at the root of the output directory.</p>
+<h2>Generated files</h2>
+<pre><code>output/
+├── index.html
+├── favicon.ico
+├── note.html
+├── category.html
+├── a_note_in_a_category.html
+├── sub-category.html
+├── a_note_in_a_sub-category.html
+├── media/
+│   └── image.jpg
+└── style/
+    ├── style.css
+    ├── Fredoka.ttf
+    └── Josefin.ttf
+</code></pre>
+<p>The <strong>output</strong> directory contains the generated files. Its structure is as follows:</p>
+<ul>
+<li>every HTML file is placed at the root</li>
+<li>every non-HTML file is placed in a <strong>media</strong> sub-directory</li>
+<li>Everything that was stored in the <strong>static</strong> directory is copied at the root</li>
+</ul>
+<p>Names of the generated files are "URLized" by replacing all non-alphanumeric character with an underscore.</p>
+<p>This creates a limitation, as the program will return an error if two file names result in the same "URLized" name, <strong>even if the original files were placed in different directories</strong>.</p>
+                </article>
+            </section>
+                
+        </main>
+        <footer>
+            <a rel="me" href="https://fosstodon.org/@ghettobastler">Fediverse</a>•
+            <a href="https://github.com/GhettoBastler">GitHub</a>•
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA</a>
+        </footer>
+    </body>
+</html>
