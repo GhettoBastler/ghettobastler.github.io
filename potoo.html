@@ -65,14 +65,16 @@
 <li>Fenced code blocks</li>
 <li>Tables</li>
 </ul>
-<p>Three optional meta-data fields can be placed at the beginning of the file: <em>title</em>, <em>description</em>, and <em>header</em>.</p>
+<p>Four optional meta-data fields can be placed at the beginning of the file: <em>title</em>, <em>description</em>, <em>header</em>, and <em>header-caption</em>.</p>
 <pre><code>title: My awesome note
 description: A short phrase explaining what this is about
 header: image.jpg
+header-caption: Description of the image
 
-this note is inside a category
+## Actual Markdown content
 ...
 </code></pre>
+<p>Note that if no <em>header</em> field is present, the <em>header-caption</em> meta-data is ignored.</p>
 <h3>Categories</h3>
 <p>Notes can be placed in directories to create <em>categories</em>.</p>
 <pre><code>└── category/
