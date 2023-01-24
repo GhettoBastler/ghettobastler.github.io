@@ -243,6 +243,7 @@ pre{
     color: var(--bg-color2);
     border-radius: 5px;
     padding: 20px;
+    overflow-x: scroll;
 }
 
 table{
