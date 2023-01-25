@@ -156,19 +156,19 @@ h4{
     text-align: center;
 }
 
-article a{
+#main-content a{
     color: var(--ln-color);  
     text-decoration: none;
     font-weight: bold;
 }
 
-article a.outgoing{
+#main-content a.outgoing{
     background: url('arrow_up_right.svg') center right no-repeat;
     background-size: 13px;
     padding-right: 13px;
 }
 
-article a:hover{
+#main-content a:hover{
     color: var(--bg-color2);  
     background-color: var(--ln-color);
 }
