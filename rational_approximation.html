@@ -33,7 +33,7 @@
                 
                 <article>
                 <h1 id="title">rational approximation</h1>
-                    <p>One day I wrote <a class="outgoing" href="https://github.com/GhettoBastler/rational-approximation">a small Python script</a> that approximates any positive floating point number with a fraction. The idea was to find some easy-to-remember fractions that I could use to convert US units to metric in my head when watching US-based TV shows.</p>
+                    <p>One day I wrote <a class="outgoing" href="https://github.com/GhettoBastler/rational-approximation">a small Python script</a> that approximates any positive floating point number with a fraction. The idea was to find some easy-to-remember fractions that I could use to convert US units to metric in my head when watching American TV shows.</p>
 <p>For example: 1 US mile is 1.609344 kilometers, which is approximately 8/5 km. Therefore 20 miles can be converted by doing <strong>20 * 8 / 5 = 32 km</strong>. The actual value is 32.18688 km, which is reasonably close.</p>
 <h2>The Stern-Brocot tree</h2>
 <p><img src="media/stern_brocot_5.jpg" />
@@ -48,7 +48,7 @@
 <strong>3</strong>: Repeat the process with each pair of consecutive fractions, inserting their mediant inbetween.</p>
 <p><img src="media/stern_brocot_4.jpg" /></p>
 <p><img src="media/stern_brocot_6.jpg" /></p>
-<p>This process lists all relative numbers exactly once  The resulting binary search tree can be used to find better and better approximation of any positive number.</p>
+<p>This process lists all relative numbers exactly once. The resulting binary search tree can be used to find better and better approximation of any positive number.</p>
 <h2>Results</h2>
 <p>I ran my script for some of the most common US units. For each conversion, three fractions are given: the first one results in an error that is less than 10% of the actual value, the second is less than 5%, the third less than 1%:</p>
 <table>
@@ -132,7 +132,8 @@
 <p>*1 hg = 100 g</p>
 <h2>Links</h2>
 <ul>
-<li>Source code on <a class="outgoing" href="https://github.com/GhettoBastler/rational-approximation">GitHub</a></li>
+<li><a class="outgoing" href="https://github.com/GhettoBastler/rational-approximation">Script</a> on GitHub</li>
+<li><a class="outgoing" href="https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree">Stern-Brocot tree</a> on Wikipedia</li>
 </ul>
                 </article>
             </section>
