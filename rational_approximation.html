@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>gb - rational approximation</title>
+        <link rel="stylesheet" href="style/style.css">
+        <meta name="description" content="using the Stern-Brocot tree">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div id="home-link">
+                    <a href="/">gb</a>
+                </div>
+                <div id="navtree"><ul>
+	<li><a href=projects.html>projects</a></li>
+	<li><a href=explorations.html class="active">explorations</a></li>
+	<li><a href=notes.html>notes</a></li>
+	<li><a href=about.html>about</a></li>
+</ul>
+<ul>
+	<li><a href=rational_approximation.html class="active">rational approximation</a></li>
+	<li><a href=vtech_storio_3s.html>VTech Storio 3S</a></li>
+	<li><a href=animation.html>animation</a></li>
+</ul>
+</div>
+
+            </nav>
+        </header>
+        <main>
+            <section id="main-content">
+                
+                <article>
+                <h1 id="title">rational approximation</h1>
+                    <p>One day I wrote <a class="outgoing" href="https://github.com/GhettoBastler/rational-approximation">a small Python script</a> that approximates any positive floating point number with a fraction. The idea was to find some easy-to-remember fractions that I could use to convert US units to metric in my head when watching US-based TV shows.</p>
+<p>For example: 1 US mile is 1.609344 kilometers, which is approximately 8/5 km. Therefore 20 miles can be converted by doing <strong>20 * 8 / 5 = 32 km</strong>. The actual value is 32.18688 km, which is reasonably close.</p>
+<h2>The Stern-Brocot tree</h2>
+<p><img src="media/stern_brocot_5.jpg" />
+<em>Image by Wikipedia user <a class="outgoing" href="https://commons.wikimedia.org/wiki/User:Aaron_Rotenberg">Aaron Rotenberg</a> (CC BY-SA 3.0)</em></p>
+<p>To find the appropriate fractions, I used the <a class="outgoing" href="https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree">Stern-Brocot tree</a>, which is an infinite tree that lists every positive rational number exactly once, in reduced form.</p>
+<p>It is constructed as follows:</p>
+<p><img src="media/stern_brocot_1.jpg" />
+<strong>1</strong>: Start with the two fractions 0/1 and 1/0 (1/0 isn't really a fraction. It actually represents <em>positive infinity</em>, but writing it this way is convinient for the next steps)</p>
+<p><img src="media/stern_brocot_2.jpg" />
+<strong>2</strong>: Calculate the <em>mediant</em> of the two fractions by adding the numerators and denominators of each fraction.</p>
+<p><img src="media/stern_brocot_3.jpg" />
+<strong>3</strong>: Repeat the process with each pair of consecutive fractions, inserting their mediant inbetween.</p>
+<p><img src="media/stern_brocot_4.jpg" /></p>
+<p><img src="media/stern_brocot_6.jpg" /></p>
+<p>This can be used as a binary search tree to find better and better approximation of any positive number.</p>
+<h2>Results</h2>
+<p>I ran my script for some of the more common US units. For each conversion, three fractions are given: the first one results in an error that is less than 10% of the actual value, the second is less than 5%, the third less than 1%:</p>
+<table>
+<thead>
+<tr>
+<th>src</th>
+<th>dst</th>
+<th>&lt;10%</th>
+<th>&lt;5%</th>
+<th>&lt;1%</th>
+<th>actual value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mi</td>
+<td>km</td>
+<td>5/3</td>
+<td>8/5</td>
+<td>21/13</td>
+<td>1.609344</td>
+</tr>
+<tr>
+<td>ft</td>
+<td>m</td>
+<td>1/3</td>
+<td>2/7</td>
+<td>3/10</td>
+<td>0.3048</td>
+</tr>
+<tr>
+<td>yd</td>
+<td>m</td>
+<td>1/1</td>
+<td>7/8</td>
+<td>10/11</td>
+<td>0.9144</td>
+</tr>
+<tr>
+<td>lb</td>
+<td>kg</td>
+<td>1/2</td>
+<td>3/7</td>
+<td>4/9</td>
+<td>0.45359237</td>
+</tr>
+<tr>
+<td>oz</td>
+<td>hg*</td>
+<td>1/3</td>
+<td>1/4</td>
+<td>2/7</td>
+<td>0.28349523125</td>
+</tr>
+<tr>
+<td>in</td>
+<td>cm</td>
+<td>5/2</td>
+<td>18/7</td>
+<td>28/11</td>
+<td>2.54</td>
+</tr>
+<tr>
+<td>in</td>
+<td>dm</td>
+<td>1/3</td>
+<td>1/4</td>
+<td>5/19</td>
+<td>0.254</td>
+</tr>
+<tr>
+<td>US cup</td>
+<td>L</td>
+<td>1/3</td>
+<td>1/4</td>
+<td>3/13</td>
+<td>0.2365882365</td>
+</tr>
+</tbody>
+</table>
+<p>*1 hg = 100 g</p>
+<h2>Links</h2>
+<ul>
+<li>Source code on <a class="outgoing" href="https://github.com/GhettoBastler/rational-approximation">GitHub</a></li>
+</ul>
+                </article>
+            </section>
+                
+        </main>
+        <footer>
+            <a rel="me" href="https://fosstodon.org/@ghettobastler">Fediverse</a>•
+            <a href="https://github.com/GhettoBastler">GitHub</a>•
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA</a>
+        </footer>
+    </body>
+</html>
