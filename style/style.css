@@ -58,9 +58,10 @@ header nav{
 #home-link{
     display: grid;
     background-color: var(--ln-color);
-    place-items: center;
+    justify-items: center;
     padding-top: 10px;
     padding-bottom: 10px;
+    max-height: 100px;
 }
 
 #home-link a{
