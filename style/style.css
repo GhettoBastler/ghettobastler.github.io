@@ -271,12 +271,17 @@ footer{
     display: grid;
     grid-template-columns: auto auto;
     border-top: 2px dashed;
+    text-decoration: none;
 }
 
 #footer-links{
     margin-right: 10px;
 }
 
+#footer-links a{
+    text-decoration: none;
+
+}
 #cc-link{
     color: var(--fg-color);
     text-decoration: none;
