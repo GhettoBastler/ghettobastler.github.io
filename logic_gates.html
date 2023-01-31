@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>gb - logic gates</title>
+        <link rel="stylesheet" href="style/style.css">
+        <meta name="description" content="">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div id="home-link">
+                    <a href="/">gb</a>
+                </div>
+                <div id="navtree"><ul>
+	<li><a href=projects.html>projects</a></li>
+	<li><a href=explorations.html>explorations</a></li>
+	<li><a href=notes.html class="active">notes</a></li>
+	<li><a href=about.html>about</a></li>
+</ul>
+<ul>
+	<li><a href=electronics.html>electronics</a></li>
+	<li><a href=minitel.html>minitel</a></li>
+	<li><a href=logic.html class="active">logic</a></li>
+	<li><a href=uxn.html>uxn</a></li>
+	<li><a href=bookbinding.html>bookbinding</a></li>
+	<li><a href=openscad.html>openscad</a></li>
+</ul>
+<ul>
+	<li><a href=logic_gates.html class="active">logic gates</a></li>
+</ul>
+</div>
+
+            </nav>
+        </header>
+        <main>
+            <section id="main-content">
+                
+                <article>
+                <h1 id="title">logic gates</h1>
+                    <p>Devices that take one or more inputs, with values either 0 or 1, and output 0 or 1. These can be associated to form more complex circuits using boolean algebra.</p>
+<h2>NOT</h2>
+<p>Outputs the invert of the input.</p>
+<table>
+<thead>
+<tr>
+<th>In</th>
+<th>Out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><strong>1</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>0</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>AND</h2>
+<p>Outputs 1 if <strong>both</strong> of its inputs are 1.</p>
+<table>
+<thead>
+<tr>
+<th>In A</th>
+<th>In B</th>
+<th>Out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td><strong>1</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>OR</h2>
+<p>Outputs 1 if <strong>at least one</strong> input is 1.</p>
+<table>
+<thead>
+<tr>
+<th>In A</th>
+<th>In B</th>
+<th>Out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td><strong>1</strong></td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td><strong>1</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td><strong>1</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>XOR</h2>
+<p>Outputs 1 if <strong>exactly one</strong> of its input is 1.</p>
+<table>
+<thead>
+<tr>
+<th>In A</th>
+<th>In B</th>
+<th>Out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td><strong>1</strong></td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td><strong>1</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td><strong>0</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>NOR</h2>
+<p>Output1 if <strong>none</strong> of its input is 1.</p>
+<table>
+<thead>
+<tr>
+<th>In A</th>
+<th>In B</th>
+<th>Out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td><strong>1</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td><strong>0</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>NAND</h2>
+<p>Outputs 1 if <strong>not all</strong> of its input are 1.</p>
+<table>
+<thead>
+<tr>
+<th>In A</th>
+<th>In B</th>
+<th>Out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td><strong>1</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td><strong>1</strong></td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td><strong>1</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td><strong>0</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>XNOR</h2>
+<p>Outputs 1 if <strong>none or more than one</strong> of its input is 1.</p>
+<table>
+<thead>
+<tr>
+<th>In A</th>
+<th>In B</th>
+<th>Out</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td><strong>1</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td><strong>1</strong></td>
+</tr>
+</tbody>
+</table>
+                </article>
+            </section>
+                
+        </main>
+        <footer>
+            <a rel="me" href="https://fosstodon.org/@ghettobastler">Fediverse</a>•
+            <a href="https://github.com/GhettoBastler">GitHub</a>•
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA</a>
+        </footer>
+    </body>
+</html>
