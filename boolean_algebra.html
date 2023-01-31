@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>gb - logic</title>
+        <title>gb - boolean algebra</title>
         <link rel="stylesheet" href="style/style.css">
         <meta name="description" content="">
     </head>
@@ -29,7 +29,7 @@
 </ul>
 <ul>
 	<li><a href=logic_gates.html>logic gates</a></li>
-	<li><a href=boolean_algebra.html>boolean algebra</a></li>
+	<li><a href=boolean_algebra.html class="active">boolean algebra</a></li>
 </ul>
 </div>
 
@@ -39,27 +39,34 @@
             <section id="main-content">
                 
                 <article>
-                <h1 id="title">logic</h1>
-                    
+                <h1 id="title">boolean algebra</h1>
+                    <p>A branch of algebra that uses 1 and 0 (true and false) as values, and OR, AND and NOT for basic operations. Expressions can be implemented using <a href="logic_gates.html">logic gates</a>.</p>
+<h2>Specific laws</h2>
+<p>Boolean algebra follows some specific rules not found in classical algebra:</p>
+<h3>Idempotence</h3>
+<ul>
+<li>x OR x = x</li>
+<li>x AND x = x</li>
+</ul>
+<h3>Absorbtion</h3>
+<ul>
+<li>x OR (x AND y) = x</li>
+<li>x AND (x OR y) = x</li>
+</ul>
+<h3>Distributivity</h3>
+<p>Similar to distributivity with multiplication and addition, but works both ways:</p>
+<ul>
+<li>x AND (y OR z) = (x AND y) OR (x AND z)</li>
+<li>x OR (y AND z) = (x OR y) AND (x OR z)</li>
+</ul>
+<h3>De Morgan laws</h3>
+<ul>
+<li>NOT(x AND y) = NOT(x) OR NOT(y)</li>
+<li>NOT(x OR y) = NOT(x) AND NOT(y)</li>
+</ul>
                 </article>
             </section>
-                <section id="category-listing">
-<div class="entry">
-<a href="logic_gates.html">
-<div class="entry-text">
-<p class="entry-title">logic gates</p>
-</div>
-</a>
-</div>
-<div class="entry">
-<a href="boolean_algebra.html">
-<div class="entry-text">
-<p class="entry-title">boolean algebra</p>
-</div>
-</a>
-</div>
-</section>
-
+                
         </main>
         <footer>
             <a rel="me" href="https://fosstodon.org/@ghettobastler">Fediverse</a>•
