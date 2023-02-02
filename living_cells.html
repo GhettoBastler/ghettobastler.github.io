@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>gb - animation</title>
+        <title>gb - CELLS</title>
         <link rel="stylesheet" href="style/style.css">
-        <meta name="description" content="moving pictures">
+        <meta name="description" content="A "creative coding" experiment written in p5.">
     </head>
     <body>
         <header>
@@ -20,10 +20,10 @@
 	<li><a href=about.html>about</a></li>
 </ul>
 <ul>
-	<li><a href=living_cells.html>living cells</a></li>
+	<li><a href=living_cells.html class="active">living cells</a></li>
 	<li><a href=rational_approximation.html>rational approximation</a></li>
 	<li><a href=vtech_storio_3s.html>VTech Storio 3S</a></li>
-	<li><a href=animation.html class="active">animation</a></li>
+	<li><a href=animation.html>animation</a></li>
 </ul>
 </div>
 
@@ -31,41 +31,16 @@
         </header>
         <main>
             <section id="main-content">
-                
+                <img id="header-img" src="media/living_cells.jpg">
+
                 <article>
-                <h1 id="title">animation</h1>
-                    <h2>Traditional 2D animation</h2>
-<p>Below are some animation exercises I did while trying to learn animation a few years back. I used <a class="outgoing" href="https://opentoonz.github.io/e/">OpenToonz</a> for animating the hand-drawn frames.</p>
-<ul>
-<li>Walk cycle</li>
-</ul>
-<p>
-<video controls=""><source src="media/15_-_walk_cycle__2_rough__-_2021-08-17.mp4" type="video/mp4"></source></video>
-</p>
-<ul>
-<li>Character on a pogo stick</li>
-</ul>
-<p>
-<video controls=""><source src="media/16_-_character_on_a_pogo_stick_-_2021-08-17.mp4" type="video/mp4"></source></video>
-</p>
-<ul>
-<li>Character sneezing</li>
-</ul>
-<p>
-<video controls=""><source src="media/18_-_sneezing_-_2021-08-27.mp4" type="video/mp4"></source></video>
-</p>
-<ul>
-<li>Laughing</li>
-</ul>
-<p>
-<video controls=""><source src="media/17_-_character_laughing_-_2021-08-22.mp4" type="video/mp4"></source></video>
-</p>
-<h2>Ressources</h2>
-<ul>
-<li><strong>The Animator's Survival Kit</strong> by Richard Williams</li>
-<li>Dong Chang's <a class="outgoing" href="https://youtube.com/playlist?list=PLOIi9JF_0h2NMe7QoZFpLbXxxK-8BI3po">video tutorials for doing traditional animation in OpenToonz</a></li>
-<li>Alex Grigg's <a class="outgoing" href="https://www.youtube.com/channel/UCS9lQ0dxMCCK450SPNf_6Gw">Animation for Everyone series on YouTube</a></li>
-</ul>
+                <h1 id="title">CELLS</h1>
+                    <p>My goal was to create a virtual Petri dish that would live on a phone and evolve depending on how the user interacted with it. The concept was inspired by the game Viridi. Made in 2020 using p5.</p>
+<p>The <a class="outgoing" href="https://github.com/GhettoBastler/cells">source code</a> is available on GitHub.</p>
+<h2>How it works</h2>
+<p>The program runs a primitive physics simulation, where several particles can move around while being repeled by each other. Each particle has a mass that increases with time, which affects the way it moves and how strongly it pushes other particles away.</p>
+<p>On each frame a <a class="outgoing" href="https://en.wikipedia.org/wiki/Voronoi_diagram">Voronoi graph</a> is drawn on the screen, with each cell encasing a single particle. The color and size of the cell depend on the particle's attributes. At any given time, a cell might "split", creating two new cells with slighltly different hues.</p>
+<p>The user can "pop" a cell by touching it.</p>
                 </article>
             </section>
                 
