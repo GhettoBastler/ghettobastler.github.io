@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   style="fill:none"
+   width="237.35301"
+   height="142.05757"
+   id="svg335"
+   sodipodi:docname="not_gate_symbol.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs339" />
+  <sodipodi:namedview
+     id="namedview337"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="1.2074294"
+     inkscape:cx="-83.648786"
+     inkscape:cy="157.77321"
+     inkscape:window-width="1366"
+     inkscape:window-height="746"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg335" />
+  <path
+     style="fill:none;stroke:#6a6a6a;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round"
+     d=""
+     id="path329" />
+  <path
+     style="fill:none;stroke:#4a4a4a;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round"
+     d=""
+     id="path331" />
+  <path
+     style="fill:none;stroke:#6a6a6a;stroke-width:7.94118px;stroke-linecap:round;stroke-linejoin:round"
+     d=""
+     id="path641" />
+  <path
+     style="fill:none;stroke:#4a4a4a;stroke-width:7.94118px;stroke-linecap:round;stroke-linejoin:round"
+     d=""
+     id="path643" />
+  <path
+     style="fill:none;stroke:#0a0a0a;stroke-width:15;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none"
+     d="m 71.02943,71.028781 v 0 V 7.4993489 L 166.32358,71.028781 71.02943,134.55822 v -63.529439 0 H 7.5 m 158.82358,0 A 15.882358,15.882358 0 0 1 182.20594,55.146423 15.882358,15.882358 0 0 1 198.0883,71.028781 15.882358,15.882358 0 0 1 182.20594,86.911138 15.882358,15.882358 0 0 1 166.32358,71.028781 m 31.76472,0 v 0 h 31.76471"
+     id="path645" />
+</svg>

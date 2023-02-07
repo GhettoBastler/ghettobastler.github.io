@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   style="fill:none"
+   width="270"
+   height="135"
+   id="svg335"
+   sodipodi:docname="and_gate_symbol.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs339" />
+  <sodipodi:namedview
+     id="namedview337"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="0.93793103"
+     inkscape:cx="206.30515"
+     inkscape:cy="126.34191"
+     inkscape:window-width="671"
+     inkscape:window-height="732"
+     inkscape:window-x="685"
+     inkscape:window-y="4"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg335" />
+  <path
+     style="fill:none;stroke:#6a6a6a;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round"
+     d=""
+     id="path329" />
+  <path
+     style="fill:none;stroke:#4a4a4a;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round"
+     d=""
+     id="path331" />
+  <path
+     style="fill:none;stroke:#0a0a0a;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round"
+     d="m 82.5,7.5 v 120 a 120,60 0 0 0 120,-60 120,60 0 0 0 -120,-60 m 0,30 v 0 h -75 m 75,60 v 0 h -75 m 195,-30 v 0 h 60"
+     id="path333" />
+</svg>
