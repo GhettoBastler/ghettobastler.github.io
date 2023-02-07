@@ -3,8 +3,8 @@
    version="1.1"
    style="fill:none"
    width="435"
-   height="254.99907"
-   id="svg59"
+   height="194.99907"
+   id="svg2753"
    sodipodi:docname="resistor_symbols.svg"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -12,9 +12,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
-     id="defs63" />
+     id="defs2757" />
   <sodipodi:namedview
-     id="namedview61"
+     id="namedview2755"
      pagecolor="#ffffff"
      bordercolor="#000000"
      borderopacity="0.25"
@@ -23,25 +23,25 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="0.93793103"
-     inkscape:cx="61.838236"
-     inkscape:cy="83.694853"
+     inkscape:zoom="0.94942529"
+     inkscape:cx="239.09201"
+     inkscape:cy="23.698547"
      inkscape:window-width="1366"
      inkscape:window-height="746"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg59" />
+     inkscape:current-layer="svg2753" />
   <path
      style="fill:none;stroke:#36271c;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
      d=""
-     id="path53" />
+     id="path2747" />
   <path
      style="fill:none;stroke:#36271c;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
      d=""
-     id="path55" />
+     id="path2749" />
   <path
      style="fill:none;stroke:#36271c;stroke-width:15px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
-     d="m 7.5,37.5 v 0 h 120 v -30 60 -30 m 0,-30 v 0 h 180 v 60 h -180 m 180,-30 v 0 h 120 m -420,180 v 0 h 120 l 30,-30 30,60 30,-60 30,60 30,-60 30,30 h 120"
-     id="path57" />
+     d="m 7.5,37.5 v 0 h 120 v -30 h 180 v 60 h -180 v -30 m 180,0 v 0 h 120 m -420,120 v 0 h 120 l 15,-30 30,60 30,-60 30,60 30,-60 30,60 15,-30 h 120"
+     id="path2751" />
 </svg>
