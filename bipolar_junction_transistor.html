@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>gb - resistor transistor logic</title>
+        <title>gb - bipolar junction transistor</title>
         <link rel="stylesheet" href="style/style.css">
         <meta name="description" content="">
     </head>
@@ -30,10 +30,10 @@
 </ul>
 <ul>
 	<li><a href=light_emitting_diode.html>light emitting diode</a></li>
-	<li><a href=bipolar_junction_transistor.html>bipolar junction transistor</a></li>
+	<li><a href=bipolar_junction_transistor.html class="active">bipolar junction transistor</a></li>
 	<li><a href=bipolar_junction_transistors.html>bipolar junction transistors</a></li>
 	<li><a href=resistor.html>resistor</a></li>
-	<li><a href=resistor_transistor_logic.html class="active">resistor transistor logic</a></li>
+	<li><a href=resistor_transistor_logic.html>resistor transistor logic</a></li>
 </ul>
 </div>
 
@@ -41,23 +41,24 @@
         </header>
         <main>
             <section id="main-content">
-                
+                <img id="header-img" src="media/three_bjt.jpg">
+
                 <article>
-                <h1 id="title">resistor transistor logic</h1>
-                    <p>A family of circuits that uses <a href="resistor.html">resistor</a> and <a href="bipolar_junction_transistor.html">bipolar junction transistor</a> to build <a href="logic_gates.html">logic gates</a>.</p>
-<h2>Pros</h2>
+                <h1 id="title">bipolar junction transistor</h1>
+                    <p>These components have three pins: <strong>base</strong>, <strong>collector</strong> and <strong>emitter</strong>.
+A little current flowing between the base and the emitter causes a larger current to flow between the collecter and the emitter. This means they can be used to amplify a signal, or as switches (<em>cutoff</em> and <em>saturation</em> states).</p>
+<h2>Symbols</h2>
+<p><img src="media/bjt.jpg" />
+<em>BJT symbols by Dave Astels (CC BY-SA) modified to add the component names</em></p>
+<p>There are two types of BJT:</p>
 <ul>
-<li>Simple</li>
-<li>Low part number</li>
+<li><strong>NPN</strong>: current flows from base to emitter</li>
+<li><strong>PNP</strong>: current flows from emitter to base</li>
 </ul>
-<h2>Cons</h2>
-<ul>
-<li>High power consumption</li>
-<li>Slow</li>
-</ul>
+<p>These can be combined with <a href="resistor.html">resistor</a> to create <a href="resistor_transistor_logic.html">logic circuits</a>.</p>
 <h2>Ressources</h2>
 <ul>
-<li><a class="outgoing" href="https://archive.org/details/RTL_Resistor-Transistor_Logic_Cookbook/page/n39/mode/1up?view=theater">The Resistor-Transistor Logic Cookbook</a></li>
+<li><a class="outgoing" href="https://learn.adafruit.com/transistors-101">Transistors 101 on Adafruit</a></li>
 </ul>
                 </article>
             </section>
