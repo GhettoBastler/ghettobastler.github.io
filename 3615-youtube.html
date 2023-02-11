@@ -45,10 +45,10 @@
 <p>At startup, the user is greeted with a home screen and an input field where they can enter a search query. Pressing return makes the Minitel displays the top search results, allowing the user to select a video, and automatically downloads and records it on a VHS tape.</p>
 <h2>How it works</h2>
 <p><img src="media/3615yt_parts.jpg" />
-The system consists of a Minitel 1B, a Raspberry Pi 3, a VCR, and a few custom-made cables and circuits to make every device talk to each other.</p>
+The system consists of a Minitel 1B, a <a href="raspberry_pi.html">Raspberry Pi 3</a>, a VCR, and a few custom-made cables and circuits to make every device talk to each other.</p>
 <p><img src="media/3615yt_schematics.jpg" /></p>
 <h3>The interface</h3>
-<p>The system is based around a Raspberry Pi which does all the actual work. It uses a custom made <a href="pi_to_minitel_adapter.html">level shifter</a> to adapt the voltage levels between the Pi and the Minitel.</p>
+<p>The system is based around a <a href="raspberry_pi.html">Raspberry Pi</a> which does all the actual work. It uses a custom made <a href="pi_to_minitel_adapter.html">level shifter</a> to adapt the voltage levels between the Pi and the Minitel.</p>
 <p><img src="media/3615yt_mt_pi.jpg" /></p>
 <p>With this setup, we can send data to the Minitel and display some text on-screen. And since the connection is bidirectional, it can also be used to detect key presses.</p>
 <p>For the graphics, I wrote a script that uses the Minitel's graphical character set to convert an image file into a string of bytes. Changing the foreground and background colors allows us to draw images using eight shades of gray.</p>
