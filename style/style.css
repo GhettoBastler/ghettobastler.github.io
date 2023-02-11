@@ -159,7 +159,7 @@ h4{
 
 #main-content a{
     color: var(--ln-color);  
-    text-decoration: none;
+    text-decoration: underline;
     font-weight: bold;
 }
 
@@ -243,6 +243,7 @@ article img{
 
 p{
     margin-bottom: 25px;
+    line-height: 130%;
 }
 
 pre{
