@@ -45,16 +45,19 @@
                 <article>
                 <h1 id="title">resistor transistor logic</h1>
                     <p>A family of circuits that uses <a href="resistor.html">resistor</a> and <a href="bipolar_junction_transistor.html">bipolar junction transistor</a> to build <a href="logic_gates.html">logic gates</a>.</p>
-<h2>Pros</h2>
-<ul>
-<li>Simple</li>
-<li>Low part number</li>
-</ul>
-<h2>Cons</h2>
-<ul>
-<li>High power consumption</li>
-<li>Slow</li>
-</ul>
+<h2>Building blocks</h2>
+<p>RTL uses a few basic building blocks to create more complex circuits.</p>
+<h3>Two-inputs NOR gate</h3>
+<p><img src="media/nor_gate_symbol.svg" /></p>
+<p><img src="media/rtl_2_input_nor_gate.jpg" /></p>
+<p>The most ubiquitous circuit in RTL is the two input NOR gate. It can be constructed using two NPN BJTs and three resistors.</p>
+<h3>Inverter</h3>
+<p><img src="media/not_gate_symbol.svg" /></p>
+<p><img src="media/rtl_inverter.jpg" /></p>
+<p>If only one input is used, the resulting gate is a simple inverter.</p>
+<h2>Other logic gates</h2>
+<p><img src="media/rtl_other_gates.jpg" /></p>
+<p>By combining the two-input NOR gate and the inverter, all of the other <a href="logic_gates.html">logic gates</a> can be built.</p>
 <h2>Ressources</h2>
 <ul>
 <li><a class="outgoing" href="https://archive.org/details/RTL_Resistor-Transistor_Logic_Cookbook/page/n39/mode/1up?view=theater">The Resistor-Transistor Logic Cookbook</a></li>
