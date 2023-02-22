@@ -44,8 +44,8 @@
 <p><a class="outgoing" href="https://youtube.com/watch?v=kMp8XH5ZHtM">Demo video on YouTube</a></p>
 <p>At startup, the user is greeted with a home screen and an input field where they can enter a search query. Pressing return makes the Minitel displays the top search results, allowing the user to select a video, and automatically downloads and records it on a VHS tape.</p>
 <h2>How it works</h2>
-<p><img src="media/3615yt_parts.jpg" />
-The system consists of a Minitel 1B, a <a href="raspberry_pi.html">Raspberry Pi 3</a>, a VCR, and a few custom-made cables and circuits to make every device talk to each other.</p>
+<p><img src="media/3615yt_parts.jpg" /></p>
+<p>The system consists of a Minitel 1B, a <a href="raspberry_pi.html">Raspberry Pi 3</a>, a VCR, and a few custom-made cables and circuits to make every device talk to each other.</p>
 <p><img src="media/3615yt_schematics.jpg" /></p>
 <h3>The interface</h3>
 <p>The system is based around a <a href="raspberry_pi.html">Raspberry Pi</a> which does all the actual work. It uses a custom made <a href="pi_to_minitel_adapter.html">level shifter</a> to adapt the voltage levels between the Pi and the Minitel.</p>
@@ -64,8 +64,8 @@ The system consists of a Minitel 1B, a <a href="raspberry_pi.html">Raspberry Pi 
 <p><img src="media/3615yt_rca_adapter.jpg" /></p>
 <p>This allows me to send a video signal simply by playing the video in VLC. I decided to emulate the VCR’s remote using <a class="outgoing" href="https://lirc.org/">LIRC</a>. I whipped up a simple IR transmitter using the schematics from <a class="outgoing" href="https://www.raspberry-pi-geek.com/Archive/2015/10/Raspberry-Pi-IR-remote">this guide</a> and taped it on the VCR.</p>
 <p><img src="media/3615yt_ir_transmitter.jpg" />
-<img src="media/3615yt_ir_transmitter2.jpg" />
-This simple solution worked perfectly. I might use this little transmitter for other projects involving IR communication.</p>
+<img src="media/3615yt_ir_transmitter2.jpg" /></p>
+<p>This simple solution worked perfectly. I might use this little transmitter for other projects involving IR communication.</p>
 <h2>Conclusion</h2>
 <p>As you might expect, the video quality is not really on par with today’s standards. But this project is less about being practical, and more about making something that seems to come from an alternate timeline, which I think it does.</p>
 <p>Also, although this is not <a href="gml2mt.html">my first Minitel project</a> it was my first time designing an actual user interface for it. The resulting code is not very elegant, albeit functional. Eventually, I would like to come back and turn it into a reusable Python module, but this is out of the scope of this project.</p>

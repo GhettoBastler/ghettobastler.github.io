@@ -40,7 +40,9 @@
                 
                 <article>
                 <h1 id="title">1ba file format</h1>
-                    <p>Description of the <code>.1ba</code> file format used to store animations played in <a href="uxn-player.html">uxn-player</a>. All numbers are stored MSB first.</p>
+                    <p><img src="media/1ba_details.jpg" /></p>
+<p><em>Visual explaination of the 1ba file format. Original idea by <a class="outgoing" href="https://github.com/corkami">Corkami</a></em></p>
+<p>The <code>.1ba</code> file format is used to store animations played in <a href="uxn-player.html">uxn-player</a>. All numbers are stored MSB first.</p>
 <h2>Global header</h2>
 <p>The first four bytes of a <code>.1ba</code> file are reserved for the screen size:</p>
 <ul>
@@ -59,12 +61,16 @@
 <h3>Skip/mark blocks</h3>
 <p><img src="media/uxn-player-mark-skip.jpg" /></p>
 <p>Graphics for each frame is <a class="outgoing" href="https://wiki.xxiivv.com/site/icn_format.html">ICN-encoded</a>. To reduce the size of the file, we use <em>transparency optimization</em>: if a run of byte from the last frame didn't change, we encode them as a <em>skip-block</em>, which tells the player to skip this part of the screen when displaying the frame. On the other hand, bytes that have changed are stored in a <em>mark-block</em>.</p>
-<p>These skip/mark blocks have the following structure:
-- A flag indicating whether this is a mark block or a skip block (1 byte: 00 means skip, any other value means mark)
-- The length to skip/mark (2 bytes)</p>
-<p>The bytes that follow depend on the type of block:
-- Skip block (flag == 00): the block ends here
-- Mark block (flag != 00): the ICN-encoded graphics</p>
+<p>These skip/mark blocks have the following structure:</p>
+<ul>
+<li>A flag indicating whether this is a mark block or a skip block (1 byte: 00 means skip, any other value means mark)</li>
+<li>The length to skip/mark (2 bytes)</li>
+</ul>
+<p>The bytes that follow depend on the type of block:</p>
+<ul>
+<li>Skip block (flag == 00): the block ends here</li>
+<li>Mark block (flag != 00): the ICN-encoded graphics</li>
+</ul>
                 </article>
             </section>
                 

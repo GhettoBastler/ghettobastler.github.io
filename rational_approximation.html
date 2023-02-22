@@ -37,16 +37,16 @@
                     <p>One day I wrote <a class="outgoing" href="https://github.com/GhettoBastler/rational-approximation">a small Python script</a> that approximates any positive floating point number with a fraction. The idea was to find some easy-to-remember fractions that I could use to convert US units to metric in my head when watching American TV shows.</p>
 <p>For example: 1 US mile is 1.609344 kilometers, which is approximately 8/5 km. Therefore 20 miles can be converted by doing <strong>20 * 8 / 5 = 32 km</strong>. The actual value is 32.18688 km, which is reasonably close.</p>
 <h2>The Stern-Brocot tree</h2>
-<p><img src="media/stern_brocot_5.jpg" />
-<em>Image by Wikipedia user <a class="outgoing" href="https://commons.wikimedia.org/wiki/User:Aaron_Rotenberg">Aaron Rotenberg</a> (CC BY-SA 3.0)</em></p>
+<p><img src="media/stern_brocot_5.jpg" /></p>
+<p><em>Image by Wikipedia user <a class="outgoing" href="https://commons.wikimedia.org/wiki/User:Aaron_Rotenberg">Aaron Rotenberg</a> (CC BY-SA 3.0)</em></p>
 <p>To find the appropriate fractions, I used the <a class="outgoing" href="https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree">Stern-Brocot tree</a>, which is an infinite tree that lists every positive rational number exactly once, in reduced form.</p>
 <p>It is constructed as follows:</p>
-<p><img src="media/stern_brocot_1.jpg" />
-<strong>1</strong>: Start with the two fractions 0/1 and 1/0 (1/0 isn't really a fraction. It actually represents <em>positive infinity</em>, but writing it this way is convinient for the next steps)</p>
-<p><img src="media/stern_brocot_2.jpg" />
-<strong>2</strong>: Calculate the <em>mediant</em> of the two fractions by adding together their numerators and denominators.</p>
-<p><img src="media/stern_brocot_3.jpg" />
-<strong>3</strong>: Repeat the process with each pair of consecutive fractions, inserting their mediant inbetween.</p>
+<p><img src="media/stern_brocot_1.jpg" /></p>
+<p><strong>1</strong>: Start with the two fractions 0/1 and 1/0 (1/0 isn't really a fraction. It actually represents <em>positive infinity</em>, but writing it this way is convinient for the next steps)</p>
+<p><img src="media/stern_brocot_2.jpg" /></p>
+<p><strong>2</strong>: Calculate the <em>mediant</em> of the two fractions by adding together their numerators and denominators.</p>
+<p><img src="media/stern_brocot_3.jpg" /></p>
+<p><strong>3</strong>: Repeat the process with each pair of consecutive fractions, inserting their mediant inbetween.</p>
 <p><img src="media/stern_brocot_4.jpg" /></p>
 <p><img src="media/stern_brocot_6.jpg" /></p>
 <p>This process lists all relative numbers exactly once. The resulting binary search tree can be used to find better and better approximation of any positive number.</p>
