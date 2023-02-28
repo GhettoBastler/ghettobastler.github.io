@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>cheapomatone - gb</title>
+        <link rel="stylesheet" href="style/style.css">
+        <meta name="description" content="A musical toy made from scratch">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div id="home-link">
+                    <a href="/">gb</a>
+                </div>
+                <div id="navtree"><ul>
+	<li><a href=projects.html class="active">projects</a></li>
+	<li><a href=explorations.html>explorations</a></li>
+	<li><a href=notes.html>notes</a></li>
+	<li><a href=about.html>about</a></li>
+</ul>
+<ul>
+	<li><a href=hardware.html class="active">hardware</a></li>
+	<li><a href=software.html>software</a></li>
+</ul>
+<ul>
+	<li><a href=3615-youtube.html>3615-YouTube</a></li>
+	<li><a href=p_o_k_e_d_.html>P.O.K.E.D.</a></li>
+	<li><a href=cheapomatone.html class="active">cheapomatone</a></li>
+	<li><a href=pi_to_minitel_adapter.html>Pi to Minitel adapter</a></li>
+	<li><a href=wordblitz-plotter.html>wordblitz-plotter</a></li>
+</ul>
+</div>
+
+            </nav>
+        </header>
+        <main>
+            <section id="main-content">
+                <img id="header-img" src="media/cheapomatone_head.jpg">
+
+                <article>
+                <h1 id="title">cheapomatone</h1>
+                    <p>
+<video controls=""><source src="media/cheapomatone_demo.mp4" type="video/mp4"></source></video>
+</p>
+<p>I made this DIY version of the <a class="outgoing" href="https://otamatone.jp/en/">Otamatone</a> while experimenting with the 555 timer IC. After successfuly making a LED blink, I figured I could make something that could produce a sound (which is like blinking, but faster).</p>
+<p><img src="media/cheapomatone.jpg" /></p>
+<p>I ended up with this silly looking contraption, which I made using components and tools I had on hand.</p>
+<h2>Speaker</h2>
+<p><img src="media/cheapomatone_speaker.jpg" />
+The sound is produced by a small 8 ohm speaker scavenged from a <a href="vtech_storio_3s.html">kid's tablet</a>. I tried gluing it in place, but as it turned out aiming a hot glue gun inside a tennis ball is quite difficult.</p>
+<h2>Circuit</h2>
+<p><img src="media/cheapomatone_board.jpg" /></p>
+<p>Driving the speaker is a <a class="outgoing" href="https://www.circuits-diy.com/simple-tone-generator-circuit-using-ne555-timer-ic/">555 tone generator circuit</a> powered by a 9V battery.</p>
+<p><img src="media/cheapomatone_circuit.png" /></p>
+<p>It generates a square wave whose frequency can be modulated by a light-dependant resistor (LDR). The circuit is turned on by shorting the two J1 header pins.</p>
+<h2>Pitch control</h2>
+<p><img src="media/cheapomatone_slide.jpg" /></p>
+<p>I borrowed the slider design from <a class="outgoing" href="http://hackaweek.com/hacks/the-555-slider-synth/">Dino's "slider synth"</a>. It uses a tube made out of black cardstock wrapped in electrical tape, with the LDR hot-glued at one end. A white LED is taped to a piece of steel wire which can slide up and down the tube, like a slide whistle.</p>
+<p><img src="media/cheapomatone_rod.jpg" /></p>
+<h2>Issues</h2>
+<p>As one might expect, this is far from perfect, and there are a couple of ways this design could be improved:</p>
+<ul>
+<li>Right now the circuit is turned on and off using a jumper. While it is possible to connect a push button to the header pins, I haven't found a convenient way to press it while playing.</li>
+<li>Unsuprisingly the pitch is quite hard to get right. While this is kind of "by design", it is certainly possible to make the slider more reliable.</li>
+</ul>
+<h2>Ressources</h2>
+<ul>
+<li>The original <a class="outgoing" href="https://otamatone.jp/en">Otamatone</a></li>
+<li>The <a class="outgoing" href="http://hackaweek.com/hacks/the-555-slider-synth/">555 Slider Synth</a></li>
+<li>A <a class="outgoing" href="https://www.circuits-diy.com/simple-tone-generator-circuit-using-ne555-timer-ic/">basic 555 tone generator</a></li>
+</ul>
+                </article>
+            </section>
+                
+        </main>
+        <footer>
+            <div id="footer-links">
+                <a href="https://webring.xxiivv.com/#ghettobastler" target="_blank" rel="noopener">
+                    <img class="footer-img" src="webring-logo.svg" alt="XXIIVV webring"/>
+                </a>
+                <a href="https://github.com/GhettoBastler">
+                    <img class="footer-img" src="github-logo.svg" alt="GitHub page">
+                </a>
+                <a rel="me" href="https://fosstodon.org/@ghettobastler">
+                    <img class="footer-img" src="fedi-logo.svg" alt="Mastodon profile">
+                </a>
+            </div>
+            <a id="cc-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+        </footer>
+    </body>
+</html>
