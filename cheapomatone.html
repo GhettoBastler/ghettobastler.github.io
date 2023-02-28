@@ -43,26 +43,27 @@
                     <p>
 <video controls=""><source src="media/cheapomatone_demo.mp4" type="video/mp4"></source></video>
 </p>
-<p>I made this DIY version of the <a class="outgoing" href="https://otamatone.jp/en/">Otamatone</a> while experimenting with the 555 timer IC. After successfuly making a LED blink, I figured I could make something that could produce a sound (which is like blinking, but faster).</p>
+<p>I made this DIY version of the <a class="outgoing" href="https://otamatone.jp/en/">Otamatone</a> while experimenting with the 555 timer IC.</p>
 <p><img src="media/cheapomatone.jpg" /></p>
-<p>I ended up with this silly looking contraption, which I made using components and tools I had on hand.</p>
-<h2>Speaker</h2>
-<p><img src="media/cheapomatone_speaker.jpg" /></p>
-<p>The sound is produced by a small 8 ohm speaker scavenged from a <a href="vtech_storio_3s.html">kid's tablet</a> and placed inside the tennis ball.</p>
-<h2>Circuit</h2>
-<p><img src="media/cheapomatone_board.jpg" /></p>
-<p>Driving the speaker is a <a class="outgoing" href="https://www.circuits-diy.com/simple-tone-generator-circuit-using-ne555-timer-ic/">555 tone generator circuit</a> powered by a 9V battery.</p>
-<p><img src="media/cheapomatone_circuit.png" /></p>
-<p>It generates a square wave whose frequency can be modulated by a light-dependant resistor (LDR). The circuit is turned on by shorting the two J1 header pins.</p>
-<h2>Pitch control</h2>
+<p>The result is this silly looking contraption, which I made using components and tools I had on hand.</p>
+<h2>How it works</h2>
+<p><img src="media/cheapomatone_board.jpg" />
+<img src="media/cheapomatone_circuit.png" /></p>
+<p>The main component is a <a class="outgoing" href="https://www.circuits-diy.com/simple-tone-generator-circuit-using-ne555-timer-ic/">tone generator circuit</a> built around a 555 chip and powered by a 9 volt battery. This circuit generates a square signal whose frequency can be changed depending on the resistance across a light-dependant resistor (LDR1 on the schematics above).</p>
+<h3>Controlling the pitch</h3>
 <p><img src="media/cheapomatone_slide.jpg" /></p>
-<p>I borrowed the slider design from <a class="outgoing" href="http://hackaweek.com/hacks/the-555-slider-synth/">Dino's "slider synth"</a>. It uses a tube made out of black cardstock wrapped in electrical tape, with the LDR hot-glued at one end. A white LED is taped to a piece of steel wire which can slide up and down the tube, like a slide whistle.</p>
+<p>I used <a class="outgoing" href="http://hackaweek.com/hacks/the-555-slider-synth/">Dino's "slider synth"</a> design to control which note is being played. It consists of a cardboard tube with the LDR glued at one end, and an <a href="light-emitting_diode.html">LED</a> placed inside attached to a rod.</p>
+<p><img src="media/cheapomatone_slide_diagram.png" /></p>
+<p>As its name implies, a LDR's resistance value depends on the amount of light it recieves. So to change the pitch, the LED is moved up and down the tube: when the LED is close to the LDR, the latter recieves a lot of light. This reduces its resistance, producing a higher pitch. When the LED is higher up, the LDR doesn't recieve as much light, which increases its resistance, lowering the note. This setup gives the cheapomatone a range of about two octaves.</p>
 <p><img src="media/cheapomatone_rod.jpg" /></p>
+<h2>Producing the sound</h2>
+<p><img src="media/cheapomatone_speaker.jpg" /></p>
+<p>The tone generator drives a small 8 ohm speaker inside the tennis ball. The sound can be modulated by pressing on the "cheeks", opening and closing the mouth.</p>
 <h2>Issues</h2>
-<p>As one might expect, this is far from perfect, and there are a couple of ways this design could be improved:</p>
+<p>While my goal wasn't to create a practical musical instrument, there are a couple of ways this design could be improved nonetheless:</p>
 <ul>
-<li>Right now the circuit is turned on and off using a jumper. While it is possible to connect a push button to the header pins, I haven't found a convenient way to press it while playing.</li>
-<li>Unsuprisingly the pitch is quite hard to get right. While this is kind of "by design", it is certainly possible to make the slider more reliable.</li>
+<li>Right now the circuit is turned on and off using a jumper. While it is possible to use a push button instead, I haven't found a convenient way to press it while playing.</li>
+<li>Unsuprisingly, the pitch is quite hard to get right. While this is kind of "by design", it is certainly possible to make the slider more reliable.</li>
 </ul>
 <h2>Ressources</h2>
 <ul>
