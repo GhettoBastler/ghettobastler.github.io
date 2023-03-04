@@ -58,23 +58,23 @@
   <text
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.5211px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#36271c;stroke-width:2.29885;stroke-dasharray:none;stroke-opacity:1"
-     x="61.977539"
-     y="19.78546"
+     x="55.977539"
+     y="228.49045"
      id="text413"><tspan
        sodipodi:role="line"
        id="tspan415"
-       x="61.977539"
-       y="19.78546"
+       x="55.977539"
+       y="228.49045"
        style="stroke-width:2.29885">Collector</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.5211px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke:#36271c;stroke-width:2.29885;stroke-dasharray:none;stroke-opacity:1"
      x="77.283699"
-     y="228.49045"
+     y="19.221476"
      id="text419"><tspan
        sodipodi:role="line"
        id="tspan421"
        x="77.283699"
-       y="228.49045"
+       y="19.221476"
        style="stroke-width:2.29885">Emitter</tspan></text>
 </svg>
