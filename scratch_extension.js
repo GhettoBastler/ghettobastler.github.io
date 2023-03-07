@@ -26,7 +26,7 @@ class ScratchFSK {
     sendFSK({data}) {
         //NO BRAIN COPY PASTE FROM NEOCAT'S CODE
         var dataURI, audio;
-        var utf8 = [0x7f] //Testing
+        var utf8 = [0x7f]; //Testing
         console.log(utf8);
         
         var sampleRate = 29400;
@@ -75,7 +75,7 @@ class ScratchFSK {
         
         if (size+44 != data.length) alert("wrong size: " + size+44 + " != " + data.length);
         
-        this.runtime.audioEngine.decodeSoundPlayer(dataURI)
+        this.runtime.audioEngine.decodeSoundPlayer(dataURI);
     }
 }
 
