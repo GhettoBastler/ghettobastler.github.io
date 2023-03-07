@@ -5,7 +5,7 @@ class ScratchFSK {
     
     getInfo() {
         return {
-            "id": "sendFSK",
+            "id": "senddata",
             "name": "Send FSK",
             "blocks": [
                         {
