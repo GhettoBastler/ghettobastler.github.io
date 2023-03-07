@@ -74,9 +74,6 @@ class ScratchFSK {
         pushData(freqHigh, postCarrierBits*spb);
         
         if (size+44 != data.length) alert("wrong size: " + size+44 + " != " + data.length);
-        
-        console.log(this.runtime);
-        this.runtime.audioEngine.decodeSoundPlayer(dataURI);
     }
 }
 
