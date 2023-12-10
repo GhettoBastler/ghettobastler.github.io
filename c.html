@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>C - gb</title>
+        <link rel="stylesheet" href="style/style.css">
+        <meta name="description" content="">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div id="home-link">
+                    <a href="/">gb</a>
+                </div>
+                <div id="navtree"><ul>
+	<li><a href=projects.html>projects</a></li>
+	<li><a href=explorations.html>explorations</a></li>
+	<li><a href=notes.html class="active">notes</a></li>
+	<li><a href=about.html>about</a></li>
+</ul>
+<ul>
+	<li><a href=hardware_notes.html>hardware</a></li>
+	<li><a href=software_notes.html class="active">software</a></li>
+	<li><a href=play.html>play</a></li>
+	<li><a href=craft.html>craft</a></li>
+	<li><a href=december_adventure_2023.html>december adventure 2023</a></li>
+	<li><a href=maths.html>maths</a></li>
+</ul>
+<ul>
+	<li><a href=uxn.html>uxn</a></li>
+	<li><a href=openscad.html>openscad</a></li>
+	<li><a href=html.html>html</a></li>
+	<li><a href=c.html class="active">C</a></li>
+</ul>
+</div>
+
+            </nav>
+        </header>
+        <main>
+            <section id="main-content">
+                
+                <article>
+                <h1 id="title">C</h1>
+                    <p>C is a programming language created in the 1970s by Dennis Ritchie and Ken Thompson. It has since gone through several revisions, the most recent being C17 released in 2018. It is one of the most popular programming languages, and is notably used for the Linux kernel.</p>
+<h2>The main function</h2>
+<p>The entry point for any C program is the <em>main</em> function. It takes two arguments and returns an integer.</p>
+<pre><code>int main(int argc, char **argv)
+{
+  // stuff
+  return 0;
+}
+</code></pre>
+<p>The parameters are as follow:</p>
+<ul>
+<li><em>argc</em>: how many arguments were passed</li>
+<li><em>argv</em>: the values of the arguments</li>
+</ul>
+<p>The two asterisks in front of <em>argv</em> means that it is <em>a pointer to a pointer to a variable of type char</em>.
+The main function returns an integer that is recieved by the OS. A return value of 0 means that the program ran succesfully. Anything else means an error occured.</p>
+<p>The order in which you write functions matters: you cannot call a function that has not been previously declared.</p>
+<h2>Compilation</h2>
+<p>The source code for a C program is just a text file, usually with with a .c extension. To run it, we must first translate into <em>machine code</em> that the computer can execute. This is done in three steps:</p>
+<ol>
+<li><strong>Preprocessing</strong>: the source code is modified according to some rules called <em>preprocessing directives</em>. These begin with a "#".</li>
+<li><strong>Compilation</strong>: the source code is translated into machine code and stored as <em>binary object files</em> (.o extension). If there are several .c files, there will be several .o files. While these contain actual machine code, they cannot be executed as is.</li>
+<li><strong>Linking</strong>: the binary object files are combined into one executable.</li>
+</ol>
+<p>A commonly used compiler on GNU/Linux systems is gcc (GNU Compiler Collection). It does all of these three steps.</p>
+<pre><code>gcc source.c -o executable_file
+</code></pre>
+<h2>Memory management</h2>
+<p>During runtime, a program might need to store data in RAM. The amount of memory needed might be known in advance, but oftentimes the program needs to request memory from the OS at runtime, which is called <em>dynamic memory allocation</em> (the opposite, when the amount of memory needed by a program is known in advance and doesn't change at run time, is called <em>static memory allocation</em>).</p>
+<p>Requesting memory from the OS is done with the <strong>malloc</strong>, <strong>calloc</strong>, <strong>realloc</strong> and <strong>aligned_alloc</strong> functions. We can tell the OS that a memory space isn't needed anymore with the <strong>free</strong> function.</p>
+<h2>Pointers</h2>
+<p>Each time a variable is created, its value is stored somewhere in memory. The <em>location</em> of a stored value can be obtain with the <strong>&amp;</strong> operator. A variable that stores the adress of another variable is called a <em>pointer</em>, and is declared by adding a <strong>*</strong> after the type name.
+Accessing the value stored at an adress stored inside a pointer is called <em>dereferencing</em>, and is also done by adding a <strong>*</strong>.</p>
+<pre><code>int var = 7; // var stores the value 7
+int* pVar; // pVar is a pointer. It stores the adress of a variable of int type.
+pVar = &amp;var; // the address of var (where 7 is stored) is assigned to pVar
+int var2 = *pVar; // the content of the variable pointed by pVar is assigned to a new variable var2
+</code></pre>
+<p>There is a special case for structures: if we have a pointer to a structure and we want to access the value of one of its members, we can use <strong>-&gt;</strong>.</p>
+<h2>Why is it sometimes called "ANSI C" or "C89" or whatever ?</h2>
+<p>ANSI C, ISO C, Standard C and (as of 2023) C17 all refer to "the current version of the C language".</p>
+<p>ANSI is short for "American National Standards Institute", the organization that manages standards in the United States.</p>
+<p>While the first specification of the C language was published by Brian Kernighan and Dennis Ritchie in their book <em>The C Programming Language</em>, ANSI published the first <strong>official</strong> standard specification for the language. This is why some people call it ANSI C. Since it was released in 1989, we also call it C89 nowadays.</p>
+<p>A year later the International Organization for Standardization (ISO) also ratified this version, which is why some people also call it ISO C, or just Standard C.</p>
+<p>There has been several revisions of C over the years, each being named according to its year of release. That's where C89, C99, C11 and C17 come from. The original C specification published by Kernighan and Ritchie is called "K&amp;R C".</p>
+                </article>
+            </section>
+                
+        </main>
+        <footer>
+            <div id="footer-links">
+                <a href="https://webring.xxiivv.com/#ghettobastler" target="_blank" rel="noopener">
+                    <img class="footer-img" src="webring-logo.svg" alt="XXIIVV webring"/>
+                </a>
+                <a href="https://github.com/GhettoBastler">
+                    <img class="footer-img" src="github-logo.svg" alt="GitHub page">
+                </a>
+                <a rel="me" href="https://fosstodon.org/@ghettobastler">
+                    <img class="footer-img" src="fedi-logo.svg" alt="Mastodon profile">
+                </a>
+            </div>
+            <a id="cc-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
+        </footer>
+    </body>
+</html>
