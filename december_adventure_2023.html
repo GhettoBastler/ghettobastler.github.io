@@ -22,9 +22,9 @@
 <ul>
 	<li><a href=hardware_notes.html>hardware</a></li>
 	<li><a href=software_notes.html>software</a></li>
+	<li><a href=december_adventure_2023.html class="active">december adventure 2023</a></li>
 	<li><a href=craft.html>craft</a></li>
 	<li><a href=maths.html>maths</a></li>
-	<li><a href=december_adventure_2023.html class="active">december adventure 2023</a></li>
 	<li><a href=play.html>play</a></li>
 </ul>
 </div>
@@ -50,13 +50,14 @@
 <li>Project the edges onto a 2D plane</li>
 <li>Apply Bresenham's line algorithm to draw the 2D lines on screen</li>
 </ol>
-<p>The problem arose when one or both end of an edge came close to the camera center:</p>
+<p>The problem arose when one or both ends of an edge came close to the camera center:</p>
 <ul>
-<li>Since the 2D coordinates are <a class="outgoing" href="https://en.wikipedia.org/wiki/3D_projection#Diagram">proportional to the inverse of the distance</a> between the object and the camera, the resulting projected edge can become extremely long.</li>
-<li>Bresenham's line algorithm draws a line one pixel at a time. Additionally when using SDL's implementation of the algorithm, we allocate more memory the longer the line. So that's why the first version of my program crashed: the OS ran out of memory to allocate.</li>
+<li>Since the 2D coordinates are <a class="outgoing" href="https://en.wikipedia.org/wiki/3D_projection#Diagram">proportional to the inverse of the distance</a> between the object and the camera, the resulting projected edge would in some cases become extremely long.</li>
+<li>But Bresenham's line algorithm draws a line one pixel at a time. Specifically, for implementation used by SDL, the longer the line, the more memory it tries to allocate.</li>
 </ul>
-<p>My first solution was to reimplement Bresenham's algorithm. This didn't really fix the memory problem rather than turn it a CPU usage one. While it stopped asking for more memory than the OS could provide, my program would instead spend ages in an loop, drawing one pixel at a time.</p>
-<p>The actual solution was simpler: cut the lines where the screen ends. <em>Duh</em>. As expected, this dramatically improved the performances which allowed more fluidly inside the scene. Hurray!</p>
+<p>Therefore the first version of my program would crash when the OS ran out of memory to allocate.</p>
+<p>My first solution was to reimplement Bresenham's algorithm. This didn't really fix the memory problem rather than turn it into a CPU usage one: while my program stopped requesting more memory than the OS could provide, it would instead spend ages drawing an excessively long line one pixel at a time.</p>
+<p>The solution I implemented today was simpler: cut the lines where the screen ends. <em>Duh</em>. As expected, this dramatically improved the performances which allowed more fluidly inside the scene. Hurray!</p>
 <p>I felt good, so I also spent a little time rewriting the controls so I could use the "ZQSD" keys (the French "WASD") to move around.</p>
 <p>Good day!</p>
 <h2>08</h2>
@@ -86,7 +87,7 @@ I ended up reimplementing <a class="outgoing" href="https://en.wikipedia.org/wik
 <p>Today I learned that the word I had to search for in order to fix my problem was "profiling".</p>
 <p>I added a new target with the relevant options to my Makefile, learned about gprof, and discovered that I was recalculating the whole the rotation matrix <em>for every single vertex</em> of the model. As a fix, I used an array to store the matrix values, updated it only once per frame, aaand... I'm still getting performance issues. I'll have to investigate this further tomorrow.</p>
 <h2>01</h2>
-<p><img alt="" src="media/da2023_0112.bmp" /></p>
+<p><img alt="" src="media/da2023_0112.jpg" /></p>
 <p>I already have a few 3D primitives working, so today I added a simple "grid" function which draw a 2D plane. This led me to realize that my program starts lagging severely when the grid is too large.</p>
                 </article>
             </section>
