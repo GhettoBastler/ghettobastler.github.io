@@ -22,10 +22,10 @@
 <ul>
 	<li><a href=hardware_notes.html>hardware</a></li>
 	<li><a href=software_notes.html>software</a></li>
-	<li><a href=craft.html>craft</a></li>
-	<li><a href=december_adventure_2023.html class="active">december adventure 2023</a></li>
 	<li><a href=play.html>play</a></li>
+	<li><a href=december_adventure_2023.html class="active">december adventure 2023</a></li>
 	<li><a href=maths.html>maths</a></li>
+	<li><a href=craft.html>craft</a></li>
 </ul>
 </div>
 
@@ -40,6 +40,18 @@
 <p>My goal is to bridge the <em>abstraction gap</em> by learning to write programs in C. As a learning project, I'm building a 3D engine/projector inspired by <a class="outgoing" href="https://wiki.xxiivv.com/site/moogle.html">moogle</a> and <a class="outgoing" href="https://git.sr.ht/~bellinitte/pinhole">pinhole</a> (I technically began working on it in november, but that's what I have going on at the moment so I'll roll with it).</p>
 <p><a class="outgoing" href="https://github.com/GhettoBastler/3D-projector">Link to GitHub repository</a></p>
 <h1>Log</h1>
+<h2>15</h2>
+<p><img src="media/da2023_1512.jpg" /></p>
+<p>Back at it again. This time I'm looking into optimizing the hidden-line removal process. Here's how I've been doing it:</p>
+<ul>
+<li>When drawing a pixel, go through the whole list of triangles</li>
+<li>For each triangle, check if it hides the point corresponding to that pixel in object space</li>
+<li>Repeat for <strong>every</strong> pixel</li>
+</ul>
+<p>Clearly, this is suboptimal. I wasn't able to render the above Utah teapot this way. The first improvement was to sort the triangles by their position on the Z-axis (from the closest to the furthest away from the camera). This way, we know we can stop whenever we reach a triangle that is completely behind the point we're currently checking.</p>
+<p>However, the real boost came from implementing bounding boxes: before doing the pixel-per-pixel check, we can eliminate every triangle whose bounding box is too far away from the line we're currently drawing. That way, a lot of useless calculation can be avoided.</p>
+<p>I think we can still go faster. For example: since every line is part of a triangle, maybe don't need to check the triangles that are beyond the one we're checking ?</p>
+<p>Reading that back, I'm not sure I'm making a lot of sense... Anyway, it is faster now, and I need some sleep. Bye!</p>
 <h2>14</h2>
 <p>No coding today, too tired. Instead I looked into <a class="outgoing" href="https://en.wikipedia.org/wiki/Polygon_triangulation">polygon triangulation</a>, since I might have to use that when rewritting the primitives.</p>
 <h2>13</h2>
@@ -59,8 +71,8 @@
 <p>
 <video controls=""><source src="media/da2023_1212.mp4" type="video/mp4"></source></video>
 </p>
-<p>We now have hidden-line removal! I couldn't find an algorithm I could understand, so I ended up writting my own. Here is how it works: in Bresenham's line algorithm, before drawing a pixel on screen, we cast a ray from the camera center to the corresponding point in object-space. If this ray intersect a face before hiting the object, the pixel is skipped.</p>
-<p>This is basically a raycaster. Right now it is very slow (every triangle is checked), and a bit glitchy (some edges intersect with the triange they're part of). I think I can speed it up by doing some bounding box checks, and by sorting the faces by their position along the Z axis.</p>
+<p>We now have hidden-line removal! I couldn't find an algorithm I understood, so I wrote my own. Here is how it works: in Bresenham's line algorithm, before drawing a pixel on screen, we cast a ray from the camera center to the corresponding point in object-space. If this ray intersect a face before hiting the object, the pixel is skipped.</p>
+<p>Right now it is very slow (every triangle is checked, <em>for every pixel</em>), and a bit glitchy (some edges intersect with the triange they're part of). I think I can speed it up by doing some bounding box checks, and by sorting the faces by their position along the Z axis.</p>
 <h2>11</h2>
 <p>
 <video controls=""><source src="media/da2023_1112.mp4" type="video/mp4"></source></video>
