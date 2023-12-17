@@ -40,8 +40,16 @@
 <p>My goal is to bridge the <em>abstraction gap</em> by learning to write programs in C. As a learning project, I'm building a 3D engine/projector inspired by <a class="outgoing" href="https://wiki.xxiivv.com/site/moogle.html">moogle</a> and <a class="outgoing" href="https://git.sr.ht/~bellinitte/pinhole">pinhole</a> (I technically began working on it in november, but that's what I have going on at the moment so I'll roll with it).</p>
 <p><a class="outgoing" href="https://github.com/GhettoBastler/3D-projector">Link to GitHub repository</a></p>
 <h1>Log</h1>
+<h2>17</h2>
+<p>A bit of progress today: </p>
+<ul>
+<li>Fixed a bug in the bounding box checks for the hidden-line removal function</li>
+<li>Added an "orbit" mode for moving the camera around an object</li>
+</ul>
+<p>However, this thing is a mess: lines of code copied and pasted, things I should refactor, unused functions... I've tried cleaning it up twice now, but both time I couldn't settle on a nice way to organize everything.</p>
+<p>Don't know if I should start rewriting everything from scratch or clean things up piece by piece...</p>
 <h2>16</h2>
-<p>Tried to rewrite the hidden-line removal, but could not get the new version to work. I think I need to get mind off the performance issues for now. Maybe work on the controls and primitives ?</p>
+<p>Tried to rewrite the hidden-line removal function, but could not get the new version to work. I think I need to get mind off the performance issues for now. Maybe work on the controls and primitives ?</p>
 <h2>15</h2>
 <p><img src="media/da2023_1512.jpg" /></p>
 <p>Back at it again. This time I'm looking into optimizing the hidden-line removal process. Here's how I've been doing it:</p>
