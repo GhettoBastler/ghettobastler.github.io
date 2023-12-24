@@ -40,11 +40,23 @@
 <p>My goal is to bridge the <em>abstraction gap</em> by learning to write programs in C. As a learning project, I'm building a 3D engine/projector inspired by <a class="outgoing" href="https://wiki.xxiivv.com/site/moogle.html">moogle</a> and <a class="outgoing" href="https://git.sr.ht/~bellinitte/pinhole">pinhole</a> (I technically began working on it in november, but that's what I have going on at the moment so I'll roll with it).</p>
 <p><a class="outgoing" href="https://github.com/GhettoBastler/3D-projector">Link to GitHub repository</a></p>
 <h1>Log</h1>
+<h2>24</h2>
+<p>
+<video controls=""><source src="media/da2023_2412.mp4" type="video/mp4"></source></video>
+</p>
+<p>We finally got our prisms back! Let's recap:</p>
+<p>The early version of this program (which implemented the prisms from day 9) stored 3D models as a collection of lines, which is enough for wireframe rendering, but not for solid objects. Indeed, we need to know which way a facet is turned, so we can decide if we should draw it or not.</p>
+<p><img src="media/da2023_2412_1.jpg" /></p>
+<p>Now, the easiest way to know which way a face is turned is to calculate the <a class="outgoing" href="https://en.wikipedia.org/wiki/Cross_product">cross-product</a> of two of its edges, which gives us a normal vector which we can then use to determine the face's orientation. However, for this to be valid, we need to be sure that every edge of a face are in the same plane. If we're careful with how we create our models this could always be the case, however we can enforce that constraint by restricting our model to having only triangular faces: that way we can be sure that all the edges forming a face are coplanar (since three points can only form one plane), and we get the added benefit of being able to import STL files, which are stored as a collection of triangular faces.</p>
+<p><img src="media/da2023_2412_2.jpg" /></p>
+<p>That's great and all, but how do we turn arbitrary polygonal faces into triangles ? In other words: <em>how do you triangulate an arbitray polygon?</em>. Well, this question have several answers, and after spending some time in <a class="outgoing" href="https://en.wikipedia.org/wiki/Polygon_triangulation">this rabbit-hole</a> I found a comprehensive algorithm in the book <a class="outgoing" href="https://archive.org/details/computational-geometry-algorithms-and-applications-mark-de-berg-otfried-cheong-marc-van-kreveld-etc.">Computational Geometry</a>. I'll spare you the details, but this involved hacking together a doubly linked list and a stackdata structure, which is why it took me a while to get it working.</p>
+<p>Now, where do we go from here ? Maybe try and rewrite some more primitives, or work on the still slow and glitchy hidden-line removal function (the book had some interesting ideas for that) ? We'll see!</p>
 <h2>23</h2>
 <p>The algorithm described in the book is based on doubly linked lists, which I had to learn to implement in C. I have nothing to show for now, but the first tests seem to work pretty well !</p>
 <h2>22</h2>
 <p><img src="media/da2023_2212.jpg" /></p>
-<p>Remember when I talked about implementing a second camera and stuff ? Well no, I'm not doing that for now. Instead I found a promising algorithm for polygon triangulation in <a class="outgoing" href="https://archive.org/details/computational-geometry-algorithms-and-applications-mark-de-berg-otfried-cheong-marc-van-kreveld-etc.">Computational Geometry</a>, so I'm back into writting primitives again.</p>
+<p>Remember when I talked about implementing a second camera and stuff ? Well turns out I'm not doing that right now. Instead I found a promising algorithm for polygon triangulation in <a class="outgoing" href="https://archive.org/details/computational-geometry-algorithms-and-applications-mark-de-berg-otfried-cheong-marc-van-kreveld-etc.">Computational Geometry</a> by Mark de Berg, Marc van Kreveld, Mark Overmars, and Otfried Schwarzkopf, so I'm back into writting primitives again.</p>
+<p><em>Picture excerpt from Computational Geometry by Mark de Berg, Marc van Kreveld, Mark Overmars, and Otfried Schwarzkopf.</em></p>
 <h2>21</h2>
 <p>Sick day!</p>
 <h2>20</h2>
