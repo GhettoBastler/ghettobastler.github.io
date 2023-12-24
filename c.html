@@ -22,10 +22,10 @@
 <ul>
 	<li><a href=hardware_notes.html>hardware</a></li>
 	<li><a href=software_notes.html class="active">software</a></li>
-	<li><a href=craft.html>craft</a></li>
-	<li><a href=maths.html>maths</a></li>
-	<li><a href=december_adventure_2023.html>december adventure 2023</a></li>
 	<li><a href=play.html>play</a></li>
+	<li><a href=maths.html>maths</a></li>
+	<li><a href=craft.html>craft</a></li>
+	<li><a href=december_adventure_2023.html>december adventure 2023</a></li>
 </ul>
 <ul>
 	<li><a href=uxn.html>uxn</a></li>
@@ -42,7 +42,7 @@
                 
                 <article>
                 <h1 id="title">C</h1>
-                    <p>C is a programming language created in the 1970s by Dennis Ritchie and Ken Thompson. It has since gone through several revisions, the most recent being C17 released in 2018. It is one of the most popular programming languages, and is notably used for the Linux kernel.</p>
+                    <p>C is a programming language created in the 1970s by Dennis Ritchie and Ken Thompson. It is one of the most popular programming languages, and is notably used for the Linux kernel. Since its creation, it has since gone through several revisions, the most recent being C17 released in 2018. </p>
 <h2>The main function</h2>
 <p>The entry point for any C program is the <em>main</em> function. It takes two arguments and returns an integer.</p>
 <pre><code>int main(int argc, char **argv)
@@ -81,6 +81,20 @@ pVar = &amp;var; // the address of var (where 7 is stored) is assigned to pVar
 int var2 = *pVar; // the content of the variable pointed by pVar is assigned to a new variable var2
 </code></pre>
 <p>There is a special case for structures: if we have a pointer to a structure and we want to access the value of one of its members, we can use <strong>-&gt;</strong>.</p>
+<h2>Linked list</h2>
+<pre><code>typedef struct _pv{
+    int index;
+    Point2D coordinates;
+    struct _pv* prev;
+    struct _pv* next;
+} PolygonVertex;
+
+typedef struct {
+    int size;
+    PolygonVertex* head;
+} Polygon;
+</code></pre>
+<p>(used in <a href="december_adventure_2023.html">my 3D projector</a>).</p>
 <h2>Why is it sometimes called "ANSI C" or "C89" or whatever ?</h2>
 <p>ANSI C, ISO C, Standard C and (as of 2023) C17 all refer to "the current version of the C language".</p>
 <p>ANSI is short for "American National Standards Institute", the organization that manages standards in the United States.</p>
