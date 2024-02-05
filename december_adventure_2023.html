@@ -22,9 +22,9 @@
 <ul>
 	<li><a href=hardware_notes.html>hardware</a></li>
 	<li><a href=software_notes.html>software</a></li>
-	<li><a href=play.html>play</a></li>
 	<li><a href=craft.html>craft</a></li>
 	<li><a href=maths.html>maths</a></li>
+	<li><a href=play.html>play</a></li>
 	<li><a href=december_adventure_2023.html class="active">december adventure 2023</a></li>
 </ul>
 </div>
@@ -42,24 +42,24 @@
 <h1>Log</h1>
 <h2>31</h2>
 <p>
-<video controls=""><source src="media/da2023_3112.mp4" type="video/mp4"></source></video>
+<video controls=""><source src="media/da2023_3112.mp4" type="video/mp4" /></video>
 </p>
 <p>This is the final entry for this year's December Adventure! What started as a simple C learning project became a journey through computer graphics, with a way-too-long dive into hidden-line removal techniques. But all in all, I think I made good progress on "bridging the abstraction gap". Pointers don't seem so scary anymore, and having to do manually manage memory made me appreciate (and actually understand) garbage collection. This also taught me the difference between a programming language's specification and its implementation, which wasn't really clear for me up until now.</p>
 <p>I'm not done with this project though: I just started working on a stack-based interpreter for reading input files à la <a href="openscad.html">OpenSCAD</a> (video above), and I want to keep working on that in January. I will make a dedicated entry in the <a href="projects.html">projects</a> section, but I won't be updating this page anymore (though I'll still be posting about it <a class="outgoing" href="https://fosstodon.org/@ghettobastler">on Mastodon</a>).</p>
 <p>I wish you all a happy new year, see ya!</p>
 <h2>30</h2>
 <p>
-<video controls=""><source src="media/da2023_3012.mp4" type="video/mp4"></source></video>
+<video controls=""><source src="media/da2023_3012.mp4" type="video/mp4" /></video>
 </p>
 <p>A little progress: I caught a few edge-cases where the segments are passing through some vertices, but now I have to deal with (I think) floating point precision stuff ? Geez, this is so frustrating...</p>
 <h2>29</h2>
 <p>
-<video controls=""><source src="media/da2023_2912.mp4" type="video/mp4"></source></video>
+<video controls=""><source src="media/da2023_2912.mp4" type="video/mp4" /></video>
 </p>
 <p>Still working on the hidden-line removal function. I got the blinking edges fixed by introducing some tolerance on the intersection check. However we now have some weirdness when a line gets right behind a triangle vertex.</p>
 <h2>28</h2>
 <p>
-<video controls=""><source src="media/da2023_2812.mp4" type="video/mp4"></source></video>
+<video controls=""><source src="media/da2023_2812.mp4" type="video/mp4" /></video>
 </p>
 <p>Had some time to try out another way of doing hidden-line removal. I previously mentioned <a class="outgoing" href="https://plotter.vision/">plotter.vision</a>, which is where I got the inspiration for this method: instead of processing one pixel at a time, we calculate the intersection between the different segments. Although this version is still glitchy, it is <em>way</em> faster than what I've been doing so far.</p>
 <h2>25-26-27</h2>
@@ -67,7 +67,7 @@
 <p>Spent most of my time with my family and friends. So not much progress these three days. During a train ride, I jotted down some ideas on ways to improve the hidden-line removal, but that's about it.</p>
 <h2>24</h2>
 <p>
-<video controls=""><source src="media/da2023_2412.mp4" type="video/mp4"></source></video>
+<video controls=""><source src="media/da2023_2412.mp4" type="video/mp4" /></video>
 </p>
 <p>We finally got our prisms back! Let's recap:</p>
 <p>The early version of this program (which implemented the prisms from day 9) stored 3D models as a collection of lines, which is enough for wireframe rendering, but not for solid objects. Indeed, we need to know which way a facet is turned, so we can decide if we should draw it or not.</p>
@@ -86,7 +86,7 @@
 <p>Sick day!</p>
 <h2>20</h2>
 <p>
-<video controls=""><source src="media/da2023_2012.mp4" type="video/mp4"></source></video>
+<video controls=""><source src="media/da2023_2012.mp4" type="video/mp4" /></video>
 </p>
 <p>More UI stuff: I added some buttons and made them clickable!</p>
 <p>Also, I think this gave me a sense of where I want this project to go: the idea would be to import a STL file, and have several buttons that could toggle various rendering options. Kind of a pedagogical tool for explaining how 3D rendering works!</p>
@@ -95,7 +95,7 @@
 <p><em>Credit for the 3D model: <a class="outgoing" href="https://www.thingiverse.com/thing:2216365">Low poly Chocobo</a> by kijai (CC BY)</em></p>
 <h2>19</h2>
 <p>
-<video controls=""><source src="media/da2023_1912.mp4" type="video/mp4"></source></video>
+<video controls=""><source src="media/da2023_1912.mp4" type="video/mp4" /></video>
 </p>
 <p>Leaving the HLR alone for now, and dipping my toe into UI design instead. This is completely uncharted territory for me: all my programs so far have been CLI, so I'm pretty much playing by ear. I used GIMP to draw the icons and export them as C files. I then copy the icons on screen, picking one or the other depending on whether or not the "orbit mode" is toggled.</p>
 <p><em>Credit for the 3D model: <a class="outgoing" href="https://www.thingiverse.com/thing:2956357">Low Poly Doge</a> by Mattias Selin (CC BY-SA)</em></p>
@@ -104,7 +104,7 @@
 <p>Started refactoring, and broke HLR... I'll try to fix that tomorrow.</p>
 <h2>17</h2>
 <p>
-<video controls=""><source src="media/da2023_1712.mp4" type="video/mp4"></source></video>
+<video controls=""><source src="media/da2023_1712.mp4" type="video/mp4" /></video>
 </p>
 <p>A bit of progress today: </p>
 <ul>
@@ -131,7 +131,7 @@
 <p>No coding today, too tired. Instead I looked into <a class="outgoing" href="https://en.wikipedia.org/wiki/Polygon_triangulation">polygon triangulation</a>, since I might have to use that when rewritting the primitives.</p>
 <h2>13</h2>
 <p>
-<video controls=""><source src="media/da2023_1312.mp4" type="video/mp4"></source></video>
+<video controls=""><source src="media/da2023_1312.mp4" type="video/mp4" /></video>
 </p>
 <p>Got cleaner lines out of my hidden-line removal function, but it is still way too slow (even after sorting the triangles along the Z axis). So instead of applying it on each frame, I only trigger it when a key is pressed (got the idea from <a class="outgoing" href="https://plotter.vision/">plotter.vision</a> by Trammell Hudson).</p>
 <p><img src="media/da2023_1312.jpg" /></p>
@@ -144,13 +144,13 @@
 </ul>
 <h2>12</h2>
 <p>
-<video controls=""><source src="media/da2023_1212.mp4" type="video/mp4"></source></video>
+<video controls=""><source src="media/da2023_1212.mp4" type="video/mp4" /></video>
 </p>
 <p>We now have hidden-line removal! I couldn't find an algorithm I understood, so I wrote my own. Here is how it works: in Bresenham's line algorithm, before drawing a pixel on screen, we cast a ray from the camera center to the corresponding point in object-space. If this ray intersect a face before hiting the object, the pixel is skipped.</p>
 <p>Right now it is very slow (every triangle is checked, <em>for every pixel</em>), and a bit glitchy (some edges intersect with the triange they're part of). I think I can speed it up by doing some bounding box checks, and by sorting the faces by their position along the Z axis.</p>
 <h2>11</h2>
 <p>
-<video controls=""><source src="media/da2023_1112.mp4" type="video/mp4"></source></video>
+<video controls=""><source src="media/da2023_1112.mp4" type="video/mp4" /></video>
 </p>
 <p>Wireframe is good, but solid models are better.</p>
 <p>The key to creating the illusion of a solid object choosing which line to draw. The way Elite did it is through a technique called <a class="outgoing" href="https://www.bbcelite.com/deep_dives/back-face_culling.html">back-face culling</a>. In a nutshell, the program checks whether each face of the model to is facing the camera, and hides it otherwise.</p>
@@ -167,7 +167,7 @@
 <p>Finally, I added <a class="outgoing" href="https://ghettobastler.com/c.html">a new page</a> for the notes I'm taking while working on this project.</p>
 <h2>09</h2>
 <p>
-<video controls=""><source src="media/da2023_0912.mp4" type="video/mp4"></source></video>
+<video controls=""><source src="media/da2023_0912.mp4" type="video/mp4" /></video>
 </p>
 <p>Finally solved the CPU usage issues! To understand, here is what my program does at each frame:</p>
 <ol>
@@ -187,7 +187,7 @@
 <p>Good day!</p>
 <h2>08</h2>
 <p>
-<video controls=""><source src="media/da2023_0812.mp4" type="video/mp4"></source></video>
+<video controls=""><source src="media/da2023_0812.mp4" type="video/mp4" /></video>
 </p>
 <p>Rotations in the previous version were centered around the origin of the scene, which felt weird when the camera wasn't centered at the origin. After implementing homogeneous coordinates, it was easier to switch things around and have the rotations centered at the camera, which seems more natural. I still have to fix some CPU usage issue that comes from lines being too long when projected.</p>
 <h2>07</h2>
@@ -228,6 +228,9 @@ I ended up reimplementing <a class="outgoing" href="https://en.wikipedia.org/wik
                 </a>
                 <a rel="me" href="https://fosstodon.org/@ghettobastler">
                     <img class="footer-img" src="fedi-logo.svg" alt="Mastodon profile">
+                </a>
+                <a href="https://ghettobastler.itch.io/">
+                    <img class="footer-img" src="itch-logo.svg" alt="itch.io page">
                 </a>
             </div>
             <a id="cc-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
