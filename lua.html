@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>uxn - gb</title>
+	<title>lua - gb</title>
         <link rel="stylesheet" href="style/style.css">
-        <meta name="description" content="A virtual stack machine">
+        <meta name="description" content="">
     </head>
     <body>
         <header>
@@ -28,14 +28,11 @@
 	<li><a href=december_adventure_2023.html>december adventure 2023</a></li>
 </ul>
 <ul>
-	<li><a href=uxn.html class="active">uxn</a></li>
+	<li><a href=uxn.html>uxn</a></li>
 	<li><a href=openscad.html>openscad</a></li>
-	<li><a href=lua.html>lua</a></li>
+	<li><a href=lua.html class="active">lua</a></li>
 	<li><a href=html.html>html</a></li>
 	<li><a href=c.html>C</a></li>
-</ul>
-<ul>
-	<li><a href=uxntal.html>uxntal</a></li>
 </ul>
 </div>
 
@@ -45,28 +42,71 @@
             <section id="main-content">
                 
                 <article>
-                <h1 id="title">uxn</h1>
-                    <p>Uxn is a virtual stack machine that can run small graphical programs. The assembly language used for writting Uxn programs is called <a href="uxntal.html">uxntal</a>.</p>
-<p>I made an <a href="uxn-player.html">animation player</a> for it.</p>
-<h2>Ressources</h2>
+                <h1 id="title">lua</h1>
+                    <p>A programming language that is used in several game engines, like PICO-8 and LÖVE2D.</p>
+<h2>Warning</h2>
 <ul>
-<li><a class="outgoing" href="https://100r.co/site/uxn.html">Uxn on 100r</a></li>
-<li><a class="outgoing" href="https://github.com/hundredrabbits/awesome-uxn#emulators">List of emulators</a></li>
-<li><a class="outgoing" href="https://github.com/DeltaF1/uxn-impl-guide">Implementation guide by DeltaF1</a></li>
+<li>Tables indices start at 1</li>
+<li>Only <em>false</em> and <em>nil</em> have boolean value <em>false</em>. <strong>Everything else is true</strong> (even "0" or an empty string)</li>
+<li>Different is "~="</li>
+</ul>
+<h2>Useful</h2>
+<pre><code>-- Inserting an element at the end of a table
+table.insert(table, element)
+
+-- Inserting an element at the beginning of a table
+table.insert(table, 1, element)
+</code></pre>
+<h2>OOP</h2>
+<pre><code>-- Defining an Entity class
+
+Entity={}
+Entity.__index=Entity
+
+-- Constructor
+function Entity:new(x, y)
+    local p={}
+    setmetatable(p, self)
+    p.x = x or 0
+    p.y = y or 0
+    p.vx = 0
+    p.vy = 0
+    return p
+end
+
+-- Methods
+function Entity:update()
+    -- updating thing
+end
+
+function Entity:draw()
+    -- drawing the entity
+end
+
+-- Instancing
+
+entity_A = Entity:new()
+
+-- Inheritance
+
+-- Player
+PLAYER = Entity:new()
+PLAYER.__index=Entity
+
+-- We define our own update method
+function PLAYER:update()
+    -- add player specific things
+    -- call parent method
+    Entity.update(self)
+end
+</code></pre>
+<h2>Links</h2>
+<ul>
+<li>(Reference manual (5.4)](https://www.lua.org/manual/5.4/)</li>
 </ul>
                 </article>
             </section>
-                <section id="category-listing">
-<div class="entry">
-<a href="uxntal.html">
-<div class="entry-text">
-<p class="entry-title">uxntal</p>
-<p class="entry-description">The uxn assembly language</p>
-</div>
-</a>
-</div>
-</section>
-
+                
         </main>
         <footer>
             <div id="footer-links">

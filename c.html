@@ -22,14 +22,15 @@
 <ul>
 	<li><a href=hardware_notes.html>hardware</a></li>
 	<li><a href=software_notes.html class="active">software</a></li>
-	<li><a href=december_adventure_2023.html>december adventure 2023</a></li>
+	<li><a href=play.html>play</a></li>
 	<li><a href=maths.html>maths</a></li>
 	<li><a href=craft.html>craft</a></li>
-	<li><a href=play.html>play</a></li>
+	<li><a href=december_adventure_2023.html>december adventure 2023</a></li>
 </ul>
 <ul>
 	<li><a href=uxn.html>uxn</a></li>
 	<li><a href=openscad.html>openscad</a></li>
+	<li><a href=lua.html>lua</a></li>
 	<li><a href=html.html>html</a></li>
 	<li><a href=c.html class="active">C</a></li>
 </ul>
@@ -42,7 +43,7 @@
                 
                 <article>
                 <h1 id="title">C</h1>
-                    <p>C is a programming language created in the 1970s by Dennis Ritchie and Ken Thompson. It is one of the most popular programming languages, and is notably used for the Linux kernel. Since its creation, it has since gone through several revisions, the most recent being C17 released in 2018. </p>
+                    <p>C is a programming language created in the 1970s by Dennis Ritchie and Ken Thompson. It is one of the most popular programming languages, and is notably used for the Linux kernel. Since its creation, it has gone through several revisions, the most recent being C17 released in 2018. </p>
 <h2>The main function</h2>
 <p>The entry point for any C program is the <em>main</em> function. It takes two arguments and returns an integer.</p>
 <pre><code>int main(int argc, char **argv)
@@ -73,10 +74,10 @@ The main function returns an integer that is recieved by the OS. A return value 
 <p>During runtime, a program might need to store data in RAM. The amount of memory needed might be known in advance, but oftentimes the program needs to request memory from the OS at runtime, which is called <em>dynamic memory allocation</em> (the opposite, when the amount of memory needed by a program is known in advance and doesn't change at run time, is called <em>static memory allocation</em>).</p>
 <p>Requesting memory from the OS is done with the <strong>malloc</strong>, <strong>calloc</strong>, <strong>realloc</strong> and <strong>aligned_alloc</strong> functions. We can tell the OS that a memory space isn't needed anymore with the <strong>free</strong> function.</p>
 <h2>Pointers</h2>
-<p>Each time a variable is created, its value is stored somewhere in memory. The <em>location</em> of a stored value can be obtain with the <strong>&amp;</strong> operator. A variable that stores the adress of another variable is called a <em>pointer</em>, and is declared by adding a <strong>*</strong> after the type name.
-Accessing the value stored at an adress stored inside a pointer is called <em>dereferencing</em>, and is also done by adding a <strong>*</strong>.</p>
+<p>Each time a variable is created, its value is stored somewhere in memory. The <em>address</em> of a stored value can be obtain with the <strong>&amp;</strong> operator. A variable that stores the address of another variable is called a <em>pointer</em>, and is declared by adding a <strong>*</strong> after the type name.
+Accessing the value stored at an address stored inside a pointer is called <em>dereferencing</em>, and is also done by adding a <strong>*</strong>.</p>
 <pre><code>int var = 7; // var stores the value 7
-int* pVar; // pVar is a pointer. It stores the adress of a variable of int type.
+int* pVar; // pVar is a pointer. It stores the address of a variable of int type.
 pVar = &amp;var; // the address of var (where 7 is stored) is assigned to pVar
 int var2 = *pVar; // the content of the variable pointed by pVar is assigned to a new variable var2
 </code></pre>
