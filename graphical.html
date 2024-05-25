@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>CELLS - gb</title>
+	<title>graphical - gb</title>
         <link rel="stylesheet" href="style/style.css">
-        <meta name="description" content="A "creative coding" experiment written in p5.">
+        <meta name="description" content="Things for the eyes">
     </head>
     <body>
         <header>
@@ -15,17 +15,13 @@
                 </div>
                 <div id="navtree"><ul>
 	<li><a href=physical.html>physical</a></li>
-	<li><a href=software.html class="active">software</a></li>
-	<li><a href=graphical.html>graphical</a></li>
+	<li><a href=software.html>software</a></li>
+	<li><a href=graphical.html class="active">graphical</a></li>
 	<li><a href=notes.html>notes</a></li>
 	<li><a href=about.html>about</a></li>
 </ul>
 <ul>
-	<li><a href=potoo.html>potoo</a></li>
-	<li><a href=uxn-player.html>uxn-player</a></li>
-	<li><a href=living_cells.html class="active">CELLS</a></li>
-	<li><a href=gml2mt.html>gml2mt</a></li>
-	<li><a href=ostrich.html>ostrich</a></li>
+	<li><a href=animation.html>animation</a></li>
 </ul>
 </div>
 
@@ -33,19 +29,23 @@
         </header>
         <main>
             <section id="main-content">
-                <img id="header-img" src="media/living_cells.jpg">
-
+                
                 <article>
-                <h1 id="title">CELLS</h1>
-                    <p>My goal was to create a virtual Petri dish that would live on a phone and evolve depending on how the user interacted with it. The concept was inspired by the game Viridi. Made in 2020 using p5.</p>
-<p>The <a class="outgoing" href="https://github.com/GhettoBastler/cells">source code</a> is available on GitHub.</p>
-<h2>How it works</h2>
-<p>The program runs a primitive physics simulation, where several particles can move around while being repeled by each other. Each particle has a mass that increases with time, which affects the way it moves and how strongly it pushes other particles away.</p>
-<p>On each frame a <a class="outgoing" href="https://en.wikipedia.org/wiki/Voronoi_diagram">Voronoi graph</a> is drawn on the screen, with each cell encasing a single particle. The color and size of the cell depend on the particle's attributes. At any given time, a cell might "split", creating two new cells with slighltly different hues.</p>
-<p>The user can "pop" a cell by touching it.</p>
+                <h1 id="title">graphical</h1>
+                    
                 </article>
             </section>
-                
+                <section id="category-listing">
+<div class="entry">
+<a href="animation.html">
+<div class="entry-text">
+<p class="entry-title">animation</p>
+<p class="entry-description">moving pictures</p>
+</div>
+</a>
+</div>
+</section>
+
         </main>
         <footer>
             <div id="footer-links">
