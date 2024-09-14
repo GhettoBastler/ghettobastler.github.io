@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Pi to Minitel adapter - gb</title>
+	<title>hardware - gb</title>
         <link rel="stylesheet" href="style/style.css">
-        <meta name="description" content="Logic level adapter for using a Minitel with a Raspberry Pi">
+        <meta name="description" content="Tangible toys and tools">
     </head>
     <body>
         <header>
@@ -28,7 +28,7 @@
 	<li><a href=3615-youtube.html>3615-YouTube</a></li>
 	<li><a href=p_o_k_e_d_.html>P.O.K.E.D.</a></li>
 	<li><a href=cheapomatone.html>cheapomatone</a></li>
-	<li><a href=pi_to_minitel_adapter.html class="active">Pi to Minitel adapter</a></li>
+	<li><a href=pi_to_minitel_adapter.html>Pi to Minitel adapter</a></li>
 	<li><a href=wordblitz-plotter.html>wordblitz-plotter</a></li>
 	<li><a href=bookbinding.html>bookbinding</a></li>
 </ul>
@@ -38,27 +38,68 @@
         </header>
         <main>
             <section id="main-content">
-                <img id="header-img" src="media/mt_pi_adapter_header.jpg">
-
+                
                 <article>
-                <h1 id="title">Pi to Minitel adapter</h1>
-                    <p>This small circuit translates logic levels between a <a href="raspberry_pi.html">Raspberry Pi</a> and a <a href="minitel.html">Minitel terminal</a>. It was used for <a href="3615-youtube.html">3615-YouTube</a>.</p>
-<h2>Why</h2>
-<p><img src="media/mt_din-5.jpg" /></p>
-<p>The Minitel 1B has a DIN-5 port at the back that can be used for serial communication with a Raspberry Pi. Unfortunately the voltage level used by the two devices are different: when listening on its recieve port, the Minitel pulls the line at 12V, which is more than what the Raspberry Pi can handle. Therefore we need a circuit to convert this back to 3.3V.</p>
-<h2>How</h2>
-<p>I made a board using <a class="outgoing" href="https://pila.fr/wordpress/?p=361">Pila's design (FR)</a>. Since the Minitel 1B also provides a 8.5V supply through its DIN-5 port, I added a regulator to power the Pi through its GPIO pins.
-The schematics can be downloaded <a href="media/mt_pi_adapter_schematics.pdf">here</a>.</p>
-<h2>The build</h2>
-<p>The circuit was designed with KiCad. I used two-sided PCB blanks that I spraypainted black before etching the design with a laser-cutter.</p>
-<p><img src="media/mt_pi_pcb_spraypaint.jpg" /></p>
-<p>I then proceeded to chemically etch the boards, cut it and drill holes for the components.</p>
-<p><img src="media/mt_pi_adapter_board_etched.jpg" /></p>
-<p>The whole board fits on top of the Pi's GPIO. I also added a pushbutton to turn the Pi on and off without a computer.</p>
-<p><img src="media/pi_and_mt_mounted.jpg" /></p>
+                <h1 id="title">hardware</h1>
+                    
                 </article>
             </section>
-                
+                <section id="category-listing">
+<div class="entry">
+<a href="3615-youtube.html">
+<img src=media/3615yt.jpg>
+<div class="entry-text">
+<p class="entry-title">3615-YouTube</p>
+<p class="entry-description">Record YouTube videos on VHS tapes using a Minitel terminal</p>
+</div>
+</a>
+</div>
+<div class="entry">
+<a href="p_o_k_e_d_.html">
+<img src=media/poked_header.jpg>
+<div class="entry-text">
+<p class="entry-title">P.O.K.E.D.</p>
+<p class="entry-description">Personal Overengineered Kinetically Extending Digit</p>
+</div>
+</a>
+</div>
+<div class="entry">
+<a href="cheapomatone.html">
+<img src=media/cheapomatone_head.jpg>
+<div class="entry-text">
+<p class="entry-title">cheapomatone</p>
+<p class="entry-description">A musical toy made from scratch</p>
+</div>
+</a>
+</div>
+<div class="entry">
+<a href="pi_to_minitel_adapter.html">
+<img src=media/mt_pi_adapter_header.jpg>
+<div class="entry-text">
+<p class="entry-title">Pi to Minitel adapter</p>
+<p class="entry-description">Logic level adapter for using a Minitel with a Raspberry Pi</p>
+</div>
+</a>
+</div>
+<div class="entry">
+<a href="wordblitz-plotter.html">
+<img src=media/wordblitz-plotter.jpg>
+<div class="entry-text">
+<p class="entry-title">wordblitz-plotter</p>
+<p class="entry-description">A complicated way of cheating at a word game</p>
+</div>
+</a>
+</div>
+<div class="entry">
+<a href="bookbinding.html">
+<div class="entry-text">
+<p class="entry-title">bookbinding</p>
+<p class="entry-description">how to make your own notebooks</p>
+</div>
+</a>
+</div>
+</section>
+
         </main>
         <footer>
             <div id="footer-links">

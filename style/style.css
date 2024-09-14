@@ -52,24 +52,18 @@ header a{
 
 header nav{
     display: grid;
-    grid-template-columns: 100px auto;
+    grid-template-columns: 110px auto;
 }
 
 #home-link{
     display: grid;
     background-color: var(--ln-color);
     justify-items: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    max-height: 100px;
+    align-items: center;
 }
 
-#home-link a{
-    font-family: fredoka-bold;
-    font-size: 50px;
-    color: var(--bg-color2);
-    padding: 10px;
-    border: 2px dashed var(--bg-color2);
+#home-link img{
+    width: 80px;
 }
 
 #navtree{
