@@ -27,9 +27,9 @@
 <ul>
 	<li><a href=hardware_notes.html>hardware</a></li>
 	<li><a href=software_notes.html>software</a></li>
+	<li><a href=maths.html>maths</a></li>
 	<li><a href=vtech_storio_3s.html class="active">VTech Storio 3S</a></li>
 	<li><a href=december_adventure_2023.html>december adventure 2023</a></li>
-	<li><a href=maths.html>maths</a></li>
 </ul>
 </div>
 
@@ -41,51 +41,50 @@
 
                 <article>
                 <h1 id="title">VTech Storio 3S</h1>
-                    <p>The VTech Storio 3S (or Innotab 3S outside of Europe) is a tablet aimed at children from 3 to 9 years old. It includes things like coloring games, an e-book reader and other “age appropriate content”. Additional games are sold separately, either as downloadable apps or as physical cartridges.</p>
-<p>I bought a used one for around 20€ in order to learn how to reverse engineer an actual device. I managed to find a serial port to connect to, and a "secret code" that grants root privileges.</p>
-<p>The following write-up describes the reverse engineering process.</p>
+                    <p>The VTech Storio 3S (or Innotab 3S outside of Europe) is a tablet for children from 3 to 9 years old. It includes coloring games, an e-book reader and other “age appropriate content”. Additional games are sold separately, either as downloadable apps or as physical cartridges.</p>
+<p>I became interested in this device because I was looking for something to practice reverse engineering on. I bought this one second hand for 20€, and managed to find a serial port and a "secret code" that grants root privileges to it.</p>
 <h2>Gathering information</h2>
 <p>In this <a class="outgoing" href="https://www.youtube.com/watch?v=tlwXmNnXeSY">Hackaday Superconference 2016 talk</a>, Samy Kamkar mentions a trick for gathering information about a piece of electronics without opening it: by law, any consumer device transmitting a radio signal and sold in the US have to be registered in the Federal Communications Commission public database. These entries are often a good source for internal and external pictures.</p>
 <p><img src="media/vtech_storio_fcc_id.jpg" /></p>
-<p>Since the Storio 3S uses Wi-Fi, it has an FCC ID printed on the back of its case. A quick search on <a class="outgoing" href="https://fccid.io/">FCC ID.io</a> returned several documents, including pictures of the circuit board with close-ups of the main integrated circuits.</p>
+<p>Since the Storio 3S uses Wi-Fi, we can find its FCC ID printed on the back of the device. A quick search on <a class="outgoing" href="https://fccid.io/">FCC ID.io</a> returned several documents, including pictures of the circuit board with close-ups of the main integrated circuits.</p>
 <p><img src="media/storio_fcc_doc_extract.jpg" /></p>
-<p>After looking online for the datasheet of each chip, I was able to identify most of them:</p>
+<p>By searching online, I was able to find the function of each chip:</p>
 <ul>
 <li><strong>Ralink RT5370N</strong>: Wi-Fi module</li>
 <li><strong>PME810816BBR-E7DN</strong>: 1 Gb SDRAM</li>
 <li><strong>Samsung KLM4G1YE4C-B001</strong>: 4GB eMMC flash memory</li>
 <li><strong>GPL32902 A-003C-QL 172</strong>: A CPU manufactured by General Plus (I didn’t find its datasheet)</li>
 </ul>
-<p>What I’ve learned so far made me pretty confident that there was an operating system running on this device. So the next step was pretty clear: I needed to find a way to interact with the OS in order to send it some commands.</p>
-<h2>Finding a locked door</h2>
-<p>Manufacturers usually don’t want users to poke around their products’ internals. This meant that I was unlikely to get direct access to the OS using the normal user interface. Therefore, I had to find another way to interact with the tablet.</p>
+<p>At this point I was pretty confident that this device was running some king of operating system. So the next step was finding a way to interact with it.</p>
+<h2>Finding a door</h2>
+<p>VTech probably doesn't want kids poking around the tablet's internal settings and operating system, so there was little chance for me to find some kind of terminal the "normal way". Instead, I had to find some way to connect my computer to the tablet.</p>
 <p><img src="media/storio_tablet_inside_1.jpg" /></p>
-<p>Electronic devices like this one usually have to be tested during their development process, so there must be a way for engineers to talk to the tablet with a computer. This meant I had to find some kind of connector (or traces thereof), or a set of exposed copper pads on the circuit board that would look like it was made for this purpose.</p>
+<p>During development, electronic devices like these have to be tested. So I should be able to find some connector (or traces thereof) that could be used for communicating with the tablet.</p>
 <p><img src="media/storio_tablet_inside_2.jpg" /></p>
-<p>And lo and behold, there is a group of test pads near the edge of the motherboard! Here the “RX” and “TX” labels indicate “Receive”, “Transmit” connections, while “GND” and “DVDD” are used for negative and positive connections to the power supply. My theory was that these are used to transmit and receive data for test purposes using the <a class="outgoing" href="https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter">Universal asynchronous receiver-transmitter</a> protocol (or UART for short). After checking that there was indeed some voltage on these pads using a multimeter, I soldered three jumper wires with female pin connectors to the pads.</p>
+<p>And lo and behold, there is a group of test pads near the edge of the motherboard! Here the “RX” and “TX” labels indicate “Receive”, “Transmit” connections, while “GND” and “DVDD” are used for negative and positive connections to the power supply. These are used to transmit and receive data using the <a class="outgoing" href="https://en.wikipedia.org/wiki/Universal_asynchronous_receiver-transmitter">Universal asynchronous receiver-transmitter</a> (or UART) protocol. After checking that these pads were active using a multimeter, I soldered some jumper wires to connect to.</p>
 <p><img src="media/storio_tablet_inside_3.jpg" /></p>
-<p>I couldn’t just connect these wires to my computer, so I used a <a class="outgoing" href="http://dangerousprototypes.com/docs/Bus_Pirate">Bus Pirate</a> as an interface. This “<em>open source hacker multi-tool</em>” connects to a USB port, allowing me to interact with the board from a terminal. After <a class="outgoing" href="http://dangerousprototypes.com/docs/UART">wiring the Bus Pirate</a> to the motherboard and setting it into “transparent bridge mode”, this is what I could read while the tablet was booting:</p>
+<p>Because I couldn’t just connect these wires to my computer, I used a <a class="outgoing" href="http://dangerousprototypes.com/docs/Bus_Pirate">Bus Pirate</a>. This “<em>open source hacker multi-tool</em>” connects to a USB port, allowing me to talk to the board using a terminal. After <a class="outgoing" href="http://dangerousprototypes.com/docs/UART">wiring the Bus Pirate</a> to the motherboard and setting it into “transparent bridge mode”, this is what I recieved when rebooting the tablet:</p>
 <p><img src="media/storio_storio_terminal1.jpg" /></p>
-<p>Nice! The tablet was sending me some debug information and, based on the file paths, it seemed to be running a Linux based OS. But my joy was short-lived as I quickly noticed something strange: while I was able to read data coming from the tablet, it wasn’t <em>echoing</em> what I was sending from my computer. Moreover, my newly find serial port did not greet me with a nice prompt inviting me to enter a command.</p>
-<p>So in order to understand what was blocking my inputs, I perform a very precise test of “mashing random keys while the tablet was booting”, which revealed a few things:</p>
+<p>So, the tablet was sending me some debug information and, based on the file paths, it seemed to be running some kinf od Linux based OS. But I noticed something strange: while I was able to read data, the tablet wasn’t <em>echoing</em> what I was typing. Moreover, this terminal did not greet me with a prompt inviting me to enter a command.</p>
+<p>In order to understand what was blocking my inputs, I perform a very precise test of “mashing the keys while the tablet was booting”, which revealed a few things:</p>
 <ul>
 <li>At the beginning of the boot process, the tablet was correctly receiving my inputs and <em>echoing</em> them back to me</li>
-<li>The <em>echoing</em> stopped once a particular program named “<strong>._.</strong>” started</li>
+<li>This <em>echoing</em> stopped once a particular program named “<strong>._.</strong>” started</li>
 </ul>
-<p>So this strangely named executable was somehow intercepting what I was sending instead of passing it through to the OS. Therefore, my next step was to find out what this mysterious program did. But how can I access this file without using my newly found serial port ?</p>
+<p>If this program was somehow intercepting my inputs, I needed to copy it on my computer and analyze it. But how could I access the filesystem if not through the newly found serial port ?</p>
 <h2>Taking the lock apart</h2>
 <p><img src="media/storio_tablet_inside_4.jpg" /></p>
-<p>This “._.” file was stored inside the tablet. And the only likely place for it to be being the eMMC chip, I had to extract it. Luckily for me, it is mounted on a separate PCB, which meant I should be able to extract it without too much hassle…</p>
+<p>Based on the what I could gather from the chip names, this “._.” file was likely to be stored on the eMMC chip. Luckily for me, it is mounted on a separate PCB, which meant I should be able to extract it without too much hassle…</p>
 <p><img src="media/storio_tablet_inside_5.jpg" /></p>
 <p>…or not. As it turned out, I wasn’t very patient and ended up ripping the PCB out, along with the copper pads it was soldered to. Which meant that I couldn’t put this chip back. But hey, at least now it was out!</p>
 <p>Connecting it to my computer required some work. These eMMC flash storage device actually uses the same communication protocol as an SD card. So I soldered some jumper wires to a microSD to SD card adapter:</p>
 <p><img src="media/storio_sd_card_adapter.jpg" /></p>
-<p>Since the pads on the PCB were nicely labeled, I was able to match each one with the corresponding wire using an SD card pinout I found online. And once plugged into my computer, I could access the partitions:</p>
+<p>Since the pads on the PCB were labeled, I was able to match each one with the corresponding wire using an SD card pinout I found online. And once plugged into my computer, I had access to the tablet's storage:</p>
 <p><img src="media/storio_terminal_2.jpg" /></p>
-<p>Some of these didn’t have a file system installed, so I used <a class="outgoing" href="https://github.com/ReFirmLabs/binwalk">binwalk</a> to extract those. The file I was looking for was on the root file system, stored on the third partition (mmcblk0p3).</p>
-<p>So, what does this executable do ? To find that out, I loaded it into <a class="outgoing" href="https://ghidra-sre.org/">Ghidra</a>.</p>
+<p>Some of these didn’t have a file system installed, so I used <a class="outgoing" href="https://github.com/ReFirmLabs/binwalk">binwalk</a> to extract the files they stored. The one I was looking for was on the third partition (mmcblk0p3).</p>
+<p>To find out what this executable was doing, I loaded it into <a class="outgoing" href="https://ghidra-sre.org/">Ghidra</a>.</p>
 <p><img src="media/storio_ghidra.jpg" /></p>
-<p>In a nutshell, this tool takes a binary executable and translates it into more readable C code. But since things like variable or function names are discarded during the compilation process, it’s up to the user to interpret whatever code comes up with.</p>
+<p>This tool takes a binary executable and translates it into more readable C code. But since things like variable or function names are discarded during the compilation process, it’s up to us to interpret whatever code it comes up with.</p>
 <p>Eventually, I was able to piece things together and found out what this software does:</p>
 <ul>
 <li>First, it disables echo on the terminal (which is why I wasn’t able to see what I was typing once it was loaded)</li>
@@ -97,10 +96,10 @@
 <h2>Getting in</h2>
 <p>I ordered a new tablet and I modified it the same way as before to add a serial port. After ._. was loaded I typed “1021”, pressed Enter and…</p>
 <p><img src="media/storio_terminal3.jpg" /></p>
-<p>Well, this was a bumpy ride!</p>
-<p>Now, to be honest, I could have followed a step-by-step guide I found online when looking for information on the tablet. In fact, all of this <a class="outgoing" href="https://hackaday.com/2012/05/24/putting-linux-on-the-vtech-innotab/">has already been done before</a>, and there are entire forums dedicated to hacking these tablets, along with patched firmware to run bootleg apps.</p>
-<p>But I wanted to try it out myself, and going through the whole process was a fruitful learning experience: it gave context to all the things I read about, it gave me an opportunity to try some new tools and, most importantly, it was a lot of fun!</p>
-<p>Furthermore, getting a root shell opens the door to a lot of new opportunities: I could try to cross-compile my own programs to run on the tablet, try to get my head around the software protection system, or just explore the filesystem to find some interesting stuff (more on that in a future post).</p>
+<p>🎉</p>
+<p>Now, to be honest, I could have found all of this information online. In fact, this <a class="outgoing" href="https://hackaday.com/2012/05/24/putting-linux-on-the-vtech-innotab/">has already been done before</a>, and there are entire forums dedicated to hacking these tablets, along with patched firmware to run bootleg apps.</p>
+<p>But I wanted to try it out myself, and I found this whole process to be an excellent learning experience: it gave context to all the things I read about, provided me with an excuse to try some new tools. Also, and most importantly, it was a lot of fun!</p>
+<p>Furthermore, getting a root shell opens the door to a lot of new opportunities: I could try to cross-compile my own programs to run on the tablet, try to get my head around the software protection system, or just explore the filesystem to find some interesting stuff.</p>
 <p>I hope this article inspires others who, like me, are interested in hardware hacking/reverse engineering but are too intimidated to give it a try. And if your soldering skills are better than mine, perhaps you can get away with buying only one tablet.</p>
 <h2>Resources</h2>
 <ul>
