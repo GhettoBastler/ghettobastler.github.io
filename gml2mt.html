@@ -52,6 +52,51 @@ Details and the source code are available on <a class="outgoing" href="https://g
 <p><a class="outgoing" href="https://en.wikipedia.org/wiki/Graffiti_Markup_Language">GML</a> (for Graffiti Markup Language) is a file format that allows graffiti artists to store tags as computer files. Because these files record the motion of a tag being drawned, they can then be reused in a variety of ways, like <a class="outgoing" href="https://www.youtube.com/watch?v=_e7Hh2SS_44">tagging robots</a>, <a class="outgoing" href="https://www.youtube.com/watch?v=EFWcAkxzkv4">large scale projections</a> and a <a class="outgoing" href="https://000000book.com/apps">a bunch of other neat stuff</a>. The open repository <a class="outgoing" href="https://000000book.com">#000000book</a> allows users to share their work and even though the whole project have been inactive for some time, people still upload new tags every day.</p>
 <h3>The Minitel</h3>
 <p>Because of its relative availability (at least in France) and very low-resolution screen, I figured using a <a href="minitel.html">Minitel</a> to display street art would be an interesting project. There already are programs that display images on these devices (like <a class="outgoing" href="https://github.com/phooky/Minitel">this one by phooky</a>), but they usually draw rasterized images. I wanted the Minitel to animate the tag being drawn stroke by stroke. Which meant that I had to write my own code to convert a GML file into drawing instructions that the Minitel could recognize.</p>
+<h3>How it works</h3>
+<h4>The basic approach</h4>
+<p>I will use <a class="outgoing" href="https://000000book.com/data/67744">this GML file</a> as an example.</p>
+<p><img src="media/gml2mt_example.jpg" /></p>
+<p>A GML file stores a graffiti as a list of strokes. Each stroke is a collection of points with X and Y coordinates ranging from 0 to 1 (there can also be a timestamp and a Z-coordinate, but these are optional and not used here).</p>
+<p><img src="media/gml2mt_example.gif" /></p>
+<p>The Minitel screen can display 24 rows of 40 characters each. By sending data through a serial connection we can move a cursor and draw a character anywhere on this 40x24 grid.
+So drawing a graffiti on the Minitel screen would essentially consists of the following steps :</p>
+<ol>
+<li>Extract the coordinates from the GML file</li>
+<li>Scale each coordinate to match the size of the Minitel screen</li>
+<li>Send commands through the serial port to move the cursor at the right place</li>
+<li>Send a command to draw a point</li>
+</ol>
+<p>Doing just that, this is what we get :</p>
+<p>
+<video controls=""><source src="media/gml2mt_draw_1.mp4" type="video/mp4" /></video>
+</p>
+<p>This is not quite right. We can guess the general shape of the tag, but a lot of it is missing. This is because a GML file only stores samples of the points that make up a line, and it is our job to fill in the gaps. A simple way to do that is to use <em>linear interpolation</em> : drawing multiple evenly spaced points along a line that goes from one set of coordinate to the next. I arbitrily chose to add 10 points between each sample.</p>
+<p>Implementing this gives us the following result :</p>
+<p>
+<video controls=""><source src="media/gml2mt_draw_2.mp4" type="video/mp4" /></video>
+</p>
+<p>There it is ! Now we can see the tag being drawn line by line. We could stop here, but this 40x24 resolution really is not that great. Fortunately there is a way we can go beyond this limitation.</p>
+<h4>Increasing the resolution</h4>
+<p>The Minitel can display graphics at a higher resolution using special <em>block characters</em>. These are essentially blocks of 2x3 pixels that can either be colored or not. Since each space on the original 40x24 can display one of these 2x3 pixel block, we get a total resolution of 80x72 pixels. Here is a diagram that show every possible block character :</p>
+<p><img src="media/gml2mt_blocks_1.gif" /></p>
+<p>So our program needs to do the following:</p>
+<ol>
+<li>Extract the coordinates from the GML file</li>
+<li>Scale each coordinate to match a <em>80x72</em> screen</li>
+<li>Interpolate between each successive point</li>
+<li><strong>"Paint" the graffiti on a 80x72 pixel grid</strong></li>
+<li><strong>Convert the painted pixels into 2x3 blocks</strong></li>
+<li>Send commands to draw the corresponding block character at the correct position on the Minitel</li>
+</ol>
+<p>The animation bellow shows how the grid can be converted into 2x3 blocks
+<img src="media/gml2mt_blocks_2.gif" /></p>
+<p>This is what we get after doing all of these steps :</p>
+<p>
+<video controls=""><source src="media/gml2mt_draw_3.mp4" type="video/mp4" /></video>
+</p>
+<p>Success! For comparison, here are the results of the three versions side-by-side :</p>
+<p><img src="media/gml2mt_comparison.jpg" /></p>
+<p>These are the basic workings of gml2mt. There is also some additional stuff (checking which way is up, manage overlapping strokes, etc), but for the most part, this is it.</p>
                 </article>
             </section>
                 
